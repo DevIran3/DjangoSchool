@@ -10,6 +10,7 @@ def Home(request):
 
 def InsertEstablecimiento(request):
     if request.method == 'POST':
+        print(request.POST)
         Establecimiento = FormEstablecimiento(request.POST)
         if Establecimiento.is_valid():
             Establecimiento.save()
