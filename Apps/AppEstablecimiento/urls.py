@@ -1,6 +1,7 @@
-from django.urls import path, include
-from Apps.AppEstablecimiento.views import Home
+from django.urls import path
+from .views import InsertEstablecimiento, Home
 
 urlpatterns = [
-    path('', Home, name = 'index')
+    path('FormEstablecimiento/', InsertEstablecimiento, name = 'InsertEstablecimiento'),
+    path('Home/', Home, name = 'index'),
 ]
