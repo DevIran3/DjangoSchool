@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InsertEstablecimiento</title>
-</head>
-<body>
+{%extends 'TempEstablecimiento/index.html'%}
+{%block title%}
+    InsertarEstablecimiento
+{%endblock title%}
+{%block h1%}
+    Modulo para insertar Establecimiento
+{%endblock h1%}
+{%block body%}
     <form method="POST">
         {%csrf_token%}
         {{EstablecimientoForm.as_p}}
         <button type="submit">Insertar</button>
     </form>
-</body>
-</html>
+{%endblock body%}
