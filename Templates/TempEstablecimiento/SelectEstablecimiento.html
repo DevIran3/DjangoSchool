@@ -1,0 +1,33 @@
+{%extends 'TempEstablecimiento/index.html'%}
+{%block title%}
+    SeleccionarEstablecimiento
+{%endblock title%}
+{%block h1%}
+    SeleccionarEstablecimiento
+{%endblock h1%}
+{%block body%}
+    {%if Establecimientos%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Fundacion</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Establecimiento in Establecimientos%}
+                <tr>
+                    <td>{{Establecimiento.nombre}}</td>
+                    <td>{{Establecimiento.direccion}}</td>
+                    <td>{{Establecimiento.fundacion}}</td>
+                    <td>{{Establecimiento.estado}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}

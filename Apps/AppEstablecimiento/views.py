@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import FormEstablecimiento
+from .models import ClsEstablecimiento
 
 # Create your views here.
 from requests import request
@@ -17,4 +18,8 @@ def InsertEstablecimiento(request):
             return redirect('index')
     else:
         EstablecimientoForm = FormEstablecimiento()
-        return  render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm':EstablecimientoForm})
+        return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm': EstablecimientoForm})
+
+def SelectEstablecimiento(request):
+    Establecimientos = ClsEstablecimiento.objects.all()
+    return render(request, 'TempEstablecimiento/SelectEstablecimiento.html', {'Establecimientos': Establecimientos})
