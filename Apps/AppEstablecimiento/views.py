@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.exceptions import ObjectDoesNotExist
 from .forms import FormEstablecimiento
 from .models import ClsEstablecimiento
 
@@ -21,5 +22,21 @@ def InsertEstablecimiento(request):
         return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm': EstablecimientoForm})
 
 def SelectEstablecimiento(request):
-    Establecimientos = ClsEstablecimiento.objects.all()
-    return render(request, 'TempEstablecimiento/SelectEstablecimiento.html', {'Establecimientos': Establecimientos})
+    clsEstablecimientos = ClsEstablecimiento.objects.all()
+    return render(request, 'TempEstablecimiento/SelectEstablecimiento.html', {'clsEstablecimientos': clsEstablecimientos})
+
+def UpdateEstablecimiento(request, pk_establecimiento):
+    Error = None
+    EstablecimientoForm = None
+    try:
+        clsEstablecimiento = ClsEstablecimiento.objects.get(pk_establecimiento = pk_establecimiento)
+        if request.method == 'GET':
+            EstablecimientoForm = FormEstablecimiento(instance = clsEstablecimiento)
+        else:
+            EstablecimientoForm = FormEstablecimiento(request.POST, instance=clsEstablecimiento)
+            if EstablecimientoForm.is_valid():
+                EstablecimientoForm.save()
+            return redirect('index')
+    except ObjectDoesNotExist as e:
+        Error = e
+    return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm':EstablecimientoForm, 'Error':Error})

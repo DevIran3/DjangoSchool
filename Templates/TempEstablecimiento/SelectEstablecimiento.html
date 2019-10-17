@@ -6,7 +6,7 @@
     SeleccionarEstablecimiento
 {%endblock h1%}
 {%block body%}
-    {%if Establecimientos%}
+    {%if clsEstablecimientos%}
         <table>
             <thead>
                 <tr>
@@ -14,15 +14,19 @@
                     <th>Direccion</th>
                     <th>Fundacion</th>
                     <th>Estado</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                {%for Establecimiento in Establecimientos%}
+                {%for Establecimiento in clsEstablecimientos%}
                 <tr>
                     <td>{{Establecimiento.nombre}}</td>
                     <td>{{Establecimiento.direccion}}</td>
                     <td>{{Establecimiento.fundacion}}</td>
                     <td>{{Establecimiento.estado}}</td>
+                    <td>
+                        <a href="{%url 'UpdateEstablecimiento' Establecimiento.pk_establecimiento%}">Actualizar</a>
+                    </td>
                 </tr>
                 {%endfor%}
             </tbody>

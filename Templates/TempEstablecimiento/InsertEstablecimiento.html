@@ -8,7 +8,11 @@
 {%block body%}
     <form method="POST">
         {%csrf_token%}
-        {{EstablecimientoForm.as_p}}
-        <button type="submit">Insertar</button>
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            {{EstablecimientoForm.as_p}}
+            <button type="submit">Insertar</button>
+        {%endif%}
     </form>
 {%endblock body%}
