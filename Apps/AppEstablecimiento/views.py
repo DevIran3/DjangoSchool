@@ -10,6 +10,7 @@ from requests import request
 def Home(request):
     return render(request, 'TempEstablecimiento/index.html')
 
+
 def InsertEstablecimiento(request):
     if request.method == 'POST':
         print(request.POST)
@@ -21,9 +22,14 @@ def InsertEstablecimiento(request):
         EstablecimientoForm = FormEstablecimiento()
         return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm': EstablecimientoForm})
 
+
+
 def SelectEstablecimiento(request):
-    clsEstablecimientos = ClsEstablecimiento.objects.all()
+#    clsEstablecimientos = ClsEstablecimiento.objects.all()
+    clsEstablecimientos = ClsEstablecimiento.objects.filter(estado = 1)
     return render(request, 'TempEstablecimiento/SelectEstablecimiento.html', {'clsEstablecimientos': clsEstablecimientos})
+
+
 
 def UpdateEstablecimiento(request, pk_establecimiento):
     Error = None
@@ -40,3 +46,15 @@ def UpdateEstablecimiento(request, pk_establecimiento):
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm':EstablecimientoForm, 'Error':Error})
+
+
+
+def DeleteEstablecimiento(request, pk_establecimiento):
+    clsEstablecimiento = ClsEstablecimiento.objects.get(pk_establecimiento = pk_establecimiento)
+    if request.method == 'POST':
+#Este metodo elimina directamente a la DB
+#        clsEstablecimiento.delete()
+        clsEstablecimiento.estado = 0
+        clsEstablecimiento.save()
+        return redirect('index')
+    return render(request, 'TempEstablecimiento/DeleteEstablecimiento.html', {'clsEstablecimiento':clsEstablecimiento})

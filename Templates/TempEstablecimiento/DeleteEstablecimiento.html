@@ -1,0 +1,15 @@
+{%extends 'TempEstablecimiento/index.html'%}
+{%block title%}
+    EliminarEstablecimiento
+{%endblock title%}
+{%block h1%}
+    EliminarEstablecimiento
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        <h2>Desea Eliminar este registro? {{clsEstablecimiento.nombre}}</h2>
+        <button type="submit">Eliminar</button>
+        <a href="{%url 'SelectEstablecimiento' %}">Cancelar</a>
+    </form>
+{%endblock body%}

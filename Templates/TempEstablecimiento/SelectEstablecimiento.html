@@ -14,7 +14,8 @@
                     <th>Direccion</th>
                     <th>Fundacion</th>
                     <th>Estado</th>
-                    <th>Opciones</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,9 @@
                     <td>{{Establecimiento.estado}}</td>
                     <td>
                         <a href="{%url 'UpdateEstablecimiento' Establecimiento.pk_establecimiento%}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteEstablecimiento' Establecimiento.pk_establecimiento%}">Eliminar</a>
                     </td>
                 </tr>
                 {%endfor%}
