@@ -1,3 +1,5 @@
+from tkinter.tix import _dummyFileComboBox
+
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import FormEstablecimiento
@@ -14,13 +16,15 @@ def Home(request):
 def InsertEstablecimiento(request):
     if request.method == 'POST':
         print(request.POST)
-        Establecimiento = FormEstablecimiento(request.POST)
-        if Establecimiento.is_valid():
-            Establecimiento.save()
-            return redirect('index')
-    else:
-        EstablecimientoForm = FormEstablecimiento()
-        return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm': EstablecimientoForm})
+        _nombre = request.POST.get('nombre')
+        _direccion = request.POST.get('direccion')
+        _fundacion = request.POST.get('fundacion')
+        _estado = request.POST.get('estado')
+        print (_nombre, _direccion, _fundacion, _estado)
+        clsEstablecimiento = ClsEstablecimiento(nombre = _nombre, direccion = _direccion, fundacion = _fundacion, estado = _estado)
+        clsEstablecimiento.save()
+        return redirect('index')
+    return render(request, 'TempEstablecimiento/InsertEstablecimiento.html')
 
 
 
