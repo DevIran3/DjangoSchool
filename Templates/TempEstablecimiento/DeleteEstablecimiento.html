@@ -8,8 +8,12 @@
 {%block body%}
     <form method="POST">
         {%csrf_token%}
-        <h2>Desea Eliminar este registro? {{clsEstablecimiento.nombre}}</h2>
-        <button type="submit">Eliminar</button>
-        <a href="{%url 'SelectEstablecimiento' %}">Cancelar</a>
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <h2>Desea Eliminar este registro? {{clsEstablecimiento.nombre}}</h2>
+            <button type="submit">Eliminar</button>
+            <a href="{%url 'SelectEstablecimiento' %}">Cancelar</a>
+        {%endif%}
     </form>
 {%endblock body%}

@@ -12,13 +12,13 @@
             <h2>{{Error}}</h2>
         {%else%}
             <label>Nombre</label>
-            <input type="text" name="nombre">
+            <input type="text" name="nombre" content={{EstablecimientoForm.nombre}}>
             <label>Direccion</label>
-            <input type="text" name="direccion">
+            <input type="text" name="direccion" content={{EstablecimientoForm.direccion}}>
             <label>Fundacion</label>
-            <input type="date" name="fundacion">
+            <input type="date" name="fundacion" content={{EstablecimientoForm.fundacion}}>
             <label>Estado</label>
-            <input type="number" name="estado">
+            <input type="number" name="estado" content={{EstablecimientoForm.estado}}>
             <button type="submit">Insertar</button>
         {%endif%}
     </form>

@@ -42,7 +42,7 @@ def UpdateEstablecimiento(request, pk_establecimiento):
             EstablecimientoForm = FormEstablecimiento(request.POST, instance=clsEstablecimiento)
             if EstablecimientoForm.is_valid():
                 EstablecimientoForm.save()
-            return redirect('index')
+                return redirect('index')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm':EstablecimientoForm, 'Error':Error})
