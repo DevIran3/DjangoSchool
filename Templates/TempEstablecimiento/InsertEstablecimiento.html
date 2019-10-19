@@ -11,7 +11,14 @@
         {%if Error%}
             <h2>{{Error}}</h2>
         {%else%}
-            {{EstablecimientoForm.as_p}}
+            <label>Nombre</label>
+            <input type="text" name="nombre">
+            <label>Direccion</label>
+            <input type="text" name="direccion">
+            <label>Fundacion</label>
+            <input type="date" name="fundacion">
+            <label>Estado</label>
+            <input type="number" name="estado">
             <button type="submit">Insertar</button>
         {%endif%}
     </form>
