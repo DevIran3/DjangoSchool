@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import InsertEstablecimiento, Home, SelectEstablecimiento, UpdateEstablecimiento, DeleteEstablecimiento
+from .views import FindDeleteEstablecimiento, FindUpdateEstablecimiento ,InsertEstablecimiento, Home, SelectEstablecimiento, UpdateEstablecimiento, DeleteEstablecimiento
 
 urlpatterns = [
     path('Home/', Home, name = 'index'),
@@ -7,6 +7,8 @@ urlpatterns = [
     path('SeleccionarEstablecimiento/' , SelectEstablecimiento, name = 'SelectEstablecimiento'),
     path('ActualizarEstablecimiento/<int:pk_establecimiento>', UpdateEstablecimiento, name = 'UpdateEstablecimiento'),
     path('EliminarEstablecimiento/<int:pk_establecimiento>', DeleteEstablecimiento, name = 'DeleteEstablecimiento'),
+    path('BuscarActualizarEstablecimiento/', FindUpdateEstablecimiento, name = 'FindUpdateEstablecimiento'),
+    path('BuscarDeleteEstablecimiento/', FindDeleteEstablecimiento, name = 'FindDeleteEstablecimiento'),
 ]
 
 # pasar parametros por la url con PATH usa normal
