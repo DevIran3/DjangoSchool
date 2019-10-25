@@ -1,0 +1,41 @@
+{%extends 'TempUsuario/index.html'%}
+{%block title%}
+    SeleccionarEstablecimiento
+{%endblock title%}
+{%block h1%}
+    SeleccionarEstablecimiento
+{%endblock h1%}
+{%block body%}
+    {%if clsUsuario%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo Usuario</th>
+                    <th>Constraseña</th>
+                    <th>Estado</th>
+                    <th>Colegio</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Usuario in clsUsuario%}
+                <tr>
+                    <td>{{Usuario.codigo_usuario}}</td>
+                    <td>{{Usuario.contrasena}}</td>
+                    <td>{{Usuario.estado}}</td>
+                    <td>{{Usuario.fk_school.nombre}}</td>
+                    <td>
+                        <a href="{%url 'UpdateUsuario' Usuario.pk_usuario%}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteUsuario' Usuario.pk_usuario%}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}

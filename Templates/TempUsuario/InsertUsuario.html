@@ -1,0 +1,25 @@
+{%extends 'TempUsuario/index.html'%}
+{%block title%}
+   Insertar Usuario
+{%endblock title%}
+{%block h1%}
+    Insertar Usuario
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Codigo Usuario</label>
+            <input type="text" name="codigo_usuario" content={{UsuarioForm.codigo_usuario}}>
+            <label>Contrasena</label>
+            <input type="text" name="contrasena" content={{UsuarioForm.contrasena}}>
+            <label>Estado</label>
+            <input type="number" name="estado" content={{UsuarioForm.estado}}>
+            <label>Codigo Establecimiento actual: {{clsUsuario.fk_school.pk_establecimiento}}</label>
+            <input type="number" name="fk_school" required>
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+{%endblock body%}
