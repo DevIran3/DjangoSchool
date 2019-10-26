@@ -38,7 +38,7 @@ def InsertUsuario(request):
 #       --> LO ENVIAMOS ASI POR QUE LA FK NECESITA NO SOLO EL NUMERO SINO EL OBJETO COMO TAL YA QUE LLEVA SUS ATRIBUTOS
         clsUsuario = ClsUsuario(codigo_usuario = _codigo_usuario, contrasena = _contrasena, estado = _estado, fk_school = ClsEstablecimiento.objects.get(pk_establecimiento = _fk_school))
         clsUsuario.save()
-        return redirect('index')
+        return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
     return render(request, 'TempUsuario/InsertUsuario.html')
 
 def UpdateUsuario(request, pk_usuario):

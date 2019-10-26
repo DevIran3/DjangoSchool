@@ -1,0 +1,25 @@
+{%extends 'TempCarrera/index.html'%}
+{%block title%}
+    Crear Carrera
+{%endblock title%}
+{%block h1%}
+    Crear Carrera
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Descripcion</label>
+            <input type="text" name="descripcion" content="{{CarreraForm.descripcion}}">
+            <label>Grado</label>
+            <input type="text" name="grado" content="{{CarreraForm.grado}}">
+            <label>Seccion</label>
+            <input type="text" name="seccion" content="{{CarreraForm.seccion}}">
+            <label>Estado</label>
+            <input type="number" name="estado" content="{{CarreraForm.estado}}">
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+{%endblock body%}

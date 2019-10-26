@@ -1,0 +1,15 @@
+{%extends 'TempCarrera/index.html'%}
+{%block title%}
+    Buscar Carrera
+{%endblock title%}
+{%block h1%}
+    Buscar Carrera
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="id" placeholder="Ingrese codigo Carrera">
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

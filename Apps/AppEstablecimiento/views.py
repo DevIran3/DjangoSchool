@@ -72,3 +72,4 @@ def FindDeleteEstablecimiento(request):
         return render(request, 'TempEstablecimiento/FindEstablecimiento.html')
     if request.method == 'POST':
         return redirect('DeleteEstablecimiento', request.POST.get('pk_establecimiento'))
+
