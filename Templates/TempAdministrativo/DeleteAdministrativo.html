@@ -1,0 +1,19 @@
+{%extends 'TempAdministrativo/index.html'%}
+{%block title%}
+    Eliminar Administrativo
+{%endblock title%}
+{%block h1%}
+    Eliminar Administrativo
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <h2>Desea Eliminar este registro? {{clsAdministrativo.nombre}}</h2>
+            <button type="submit">Eliminar</button>
+            <a href="{%url 'SelectAdministrativo' %}">Cancelar</a>
+        {%endif%}
+    </form>
+{%endblock body%}

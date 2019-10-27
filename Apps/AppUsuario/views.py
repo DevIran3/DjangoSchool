@@ -52,7 +52,7 @@ def UpdateUsuario(request, pk_usuario):
             UsuarioForm = FormUsuario(request.POST, instance = clsUsuario)
             if UsuarioForm.is_valid():
                 UsuarioForm.save()
-                return redirect('index')
+                return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempUsuario/InsertUsuario.html', {'UsuarioForm':UsuarioForm, 'Error':Error, 'clsUsuario':clsUsuario})
@@ -73,7 +73,7 @@ def DeleteUsuario(request, pk_usuario):
 #   clsEstablecimiento.delete()
             clsUsuario.estado = 0
             clsUsuario.save()
-            return redirect('index')
+            return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_usuario
     return render(request, 'TempUsuario/DeleteUsuario.html', {'clsUsuario':clsUsuario, 'Error':Error})

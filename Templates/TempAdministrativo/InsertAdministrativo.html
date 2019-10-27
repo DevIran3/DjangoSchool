@@ -1,0 +1,29 @@
+{%extends 'TempAdministrativo/index.html'%}
+{%block title%}
+    Crear Administrativo
+{%endblock title%}
+{%block h1%}
+    Crear Administrativo
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Nombre</label>
+            <input type="text" name="nombre" content="{{formAdministrativo.nombre}}">
+            <label>Apellido</label>
+            <input type="text" name="apellido" content="{{formAdministrativo.apellido}}">
+            <label>DPI</label>
+            <input type="text" name="dpi" content="{{formAdministrativo.dpi}}">
+            <label>Fecha Ingreso</label>
+            <input type="date" name="fecha_ingreso" content="{{formAdministrativo.fecha_ingreso}}">
+            <label>Estado</label>
+            <input type="number" name="estado" content="{{formAdministrativo.estado}}">
+            <label>Codigo Usuario actual: {{clsAdministrativo.fk_usuario.pk_usuario}}</label>
+            <input type="number" name="fk_usuario"  required>
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+{%endblock body%}>

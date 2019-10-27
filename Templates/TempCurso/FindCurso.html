@@ -1,0 +1,15 @@
+{%extends 'TempCurso/index.html'%}
+{%block title%}
+    Buscar Curso
+{%endblock title%}
+{%block h1%}
+    Buscar Curso
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_curso" placeholder="Ingrese codigo curso" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

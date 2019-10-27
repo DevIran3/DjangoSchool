@@ -80,3 +80,5 @@ def FindDeleteAlumno(request):
         return render(request, 'TempAlumno/FindAlumno.html')
     if request.method == 'POST':
         return redirect('DeleteAlumno', request.POST.get('pk_alumno'))
+
+

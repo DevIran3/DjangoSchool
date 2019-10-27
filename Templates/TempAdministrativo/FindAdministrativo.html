@@ -1,0 +1,15 @@
+{%extends 'TempAdministrativo/index.html'%}
+{%block title%}
+    Buscar Administrativo
+{%endblock title%}
+{%block h1%}
+    Buscar Administrativo
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_administrativo" placeholder="Ingrese codigo administrativo" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

@@ -1,0 +1,47 @@
+{%extends 'TempAdministrativo/index.html'%}
+{%block title%}
+    Seleccionar Administrativo
+{%endblock title%}
+{%block h1%}
+    Seleccionar Administrativo
+{%endblock h1%}
+{%block body%}
+    {%if clsAdministrativo%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo Administrativo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DPI</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Estado</th>
+                    <th>Codigo Usuario</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Administrativo in clsAdministrativo%}
+                <tr>
+                    <td>{{Administrativo.pk_administrativo}}</td>
+                    <td>{{Administrativo.nombre}}</td>
+                    <td>{{Administrativo.apellido}}</td>
+                    <td>{{Administrativo.dpi}}</td>
+                    <td>{{Administrativo.fecha_ingreso}}</td>
+                    <td>{{Administrativo.estado}}</td>
+                    <td>{{Administrativo.fk_usuario.codigo_usuario}}</td>
+                    <td>
+                        <a href="{%url 'UpdateAdministrativo' Administrativo.pk_administrativo%}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteAdministrativo' Administrativo.pk_administrativo%}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}
