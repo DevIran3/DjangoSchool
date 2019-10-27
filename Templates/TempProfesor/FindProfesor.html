@@ -1,0 +1,15 @@
+{%extends 'TempProfesor/index.html'%}
+{%block title%}
+    Buscar Profesor
+{%endblock title%}
+{%block h1%}
+    Buscar Profesor
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_profesor" placeholder="Ingrese codigo alumno" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

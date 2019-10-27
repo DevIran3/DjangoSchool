@@ -1,0 +1,47 @@
+{%extends 'TempProfesor/index.html'%}
+{%block title%}
+    Seleccionar Profesor
+{%endblock title%}
+{%block h1%}
+    Seleccionar Profesor
+{%endblock h1%}
+{%block body%}
+    {%if clsProfesor%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo Profesor</th>
+                    <th>DPI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Estado</th>
+                    <th>Codigo Usuario</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Profesor in clsProfesor%}
+                <tr>
+                    <td>{{Profesor.pk_profesor}}</td>
+                    <td>{{Profesor.dpi}}</td>
+                    <td>{{Profesor.nombre}}</td>
+                    <td>{{Profesor.apellido}}</td>
+                    <td>{{Profesor.fecha_ingreso}}</td>
+                    <td>{{Profesor.estado}}</td>
+                    <td>{{Profesor.fk_usuario.codigo_usuario}}</td>
+                    <td>
+                        <a href="{%url 'UpdateProfesor' Profesor.pk_profesor%}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteProfesor' Profesor.pk_profesor%}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}

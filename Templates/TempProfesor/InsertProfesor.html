@@ -1,0 +1,29 @@
+{%extends 'TempProfesor/index.html'%}
+{%block title%}
+    Crear Profesor
+{%endblock title%}
+{%block h1%}
+    Crear Profesor
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>DPI</label>
+            <input type="text" name="dpi" content="{{formProfesor.dpi}}">
+            <label>Nombre</label>
+            <input type="text" name="nombre" content="{{formProfesor.nombre}}">
+            <label>Apellio</label>
+            <input type="text" name="apellido" content="{{formProfesor.apellido}}">
+            <label>Fecha Ingreso</label>
+            <input type="date" name="fecha_ingreso" content="{{formProfesor.fecha_ingreso}}">
+            <label>Estado</label>
+            <input type="number" name="estado" content="{{formProfesor.estado}}">
+            <label>Codigo Usuario Actual: {{clsProfesor.fk_usuario.pk_usuario}}</label>
+            <input type="number" name="fk_usuario" required>
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+{%endblock body%}>
