@@ -1,0 +1,15 @@
+{%extends 'TempAlumno/index.html'%}
+{%block title%}
+    Buscar Alumno
+{%endblock title%}
+{%block h1%}
+    Buscar Alumno
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_alumno" placeholder="Ingrese codigo alumno" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

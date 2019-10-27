@@ -1,9 +1,9 @@
-{%extends 'TempUsuario/index.html'%}
+{%extends 'TempAlumno/index.html'%}
 {%block title%}
-    Eliminar Usuario
+    Eliminar Alumno
 {%endblock title%}
 {%block h1%}
-    Eliminar Usuario
+    Eliminar Alumno
 {%endblock h1%}
 {%block body%}
     <form method="POST">
@@ -13,7 +13,7 @@
         {%else%}
             <h2>Desea Eliminar este registro? {{clsUsuario.codigo_usuario}}</h2>
             <button type="submit">Eliminar</button>
-            <a href="{%url 'SelectUsuario' %}">Cancelar</a>
+            <a href="{%url 'SelectAlumno' %}">Cancelar</a>
         {%endif%}
     </form>
 {%endblock body%}

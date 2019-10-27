@@ -1,0 +1,53 @@
+{%extends 'TempAlumno/index.html'%}
+{%block title%}
+    Seleccionar Alumno
+{%endblock title%}
+{%block h1%}
+    Seleccionar Alumno
+{%endblock h1%}
+{%block body%}
+    {%if clsAlumno%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo Alumno</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha Incripcion</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Direccion</th>
+                    <th>Estado</th>
+                    <th>Codigo Carrera</th>
+                    <th>Codigo Usuario</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Alumno in clsAlumno%}
+                <tr>
+                    <td>{{Alumno.pk_alumno}}</td>
+                    <td>{{Alumno.nombre}}</td>
+                    <td>{{Alumno.apellido}}</td>
+                    <td>{{Alumno.fecha_ingreso}}</td>
+                    <td>{{Alumno.contacto}}</td>
+                    <td>{{Alumno.email}}</td>
+                    <td>{{Alumno.direccion}}</td>
+                    <td>{{Alumno.estado}}</td>
+                    <td>{{Alumno.fk_carrera.id}} - {{Alumno.fk_carrera.descripcion}}</td>
+                    <td>{{Alumno.fk_usuario.codigo_usuario}}</td>
+                    <td>
+                        <a href="{%url 'UpdateAlumno' Alumno.pk_alumno %}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteAlumno' Alumno.pk_alumno %}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}

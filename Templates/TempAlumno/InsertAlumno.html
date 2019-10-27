@@ -1,0 +1,35 @@
+{%extends 'TempAlumno/index.html'%}
+{%block title%}
+    Crear Alumno
+{%endblock title%}
+{%block h1%}
+    Crear Alumno
+{%endblock h1%}
+{%block body%}
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Nombre</label>
+            <input type="text" name="nombre" content="{{formAlumno.nombre}}">
+            <label>Apellido</label>
+            <input type="text" name="apellido" content="{{formAlumno.apellido}}">
+            <label>Fecha Ingreso</label>
+            <input type="date" name="fecha_ingreso" content="{{formAlumno.fecha_ingreso}}">
+            <label>Contacto</label>
+            <input type="text" name="contacto" content="{{formAlumno.contacto}}">
+            <label>Email</label>
+            <input type="email" name="email" content="{{formAlumno.email}}">
+            <label>Direccion</label>
+            <input type="text" name="direccion" content="{{formAlumno.direccion}}">
+            <label>Estado</label>
+            <input type="number" name="estado" content="{{formAlumno.estado}}">
+            <label>Codigo Carrera actual: {{clsAlumno.fk_carrera.id}}</label>
+            <input type="number" name="fk_carrera" required>
+            <label>Codigo Usuario actual: {{clsAlumno.fk_usuario.pk_usuario}}</label>
+            <input type="number" name="fk_usuario"  required>
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+{%endblock body%}
