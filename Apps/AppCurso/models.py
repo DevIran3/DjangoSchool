@@ -9,6 +9,7 @@ class ClsCurso(models.Model):
     descripcion = models.CharField(max_length=50)
     hora_entrada = models.TimeField()
     hora_salida = models.TimeField()
+    estado = models.IntegerField()
     fk_profesor = models.ForeignKey(ClsProfesor, null=False, blank=False, on_delete=models.CASCADE)
     fk_carrera = models.ForeignKey(ClsCarrera, null=False, blank=False, on_delete=models.CASCADE)
 

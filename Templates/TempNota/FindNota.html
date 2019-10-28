@@ -1,0 +1,15 @@
+{%extends 'TempNota/index.html'%}
+{%block title%}
+    Buscar Nota
+{%endblock title%}
+{%block h1%}
+    Buscar Nota
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_nota" placeholder="Ingrese codigo nota" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

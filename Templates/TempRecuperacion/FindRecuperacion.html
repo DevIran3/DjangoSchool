@@ -1,0 +1,15 @@
+{%extends 'TempRecuperacion/index.html'%}
+{%block title%}
+    Buscar Recuperacion
+{%endblock title%}
+{%block h1%}
+    Buscar Recuperacion
+{%endblock h1%}
+{%block body%}
+    <br>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="pk_recuperacion" placeholder="Ingrese codigo recuperacion" required>
+        <button type="submit">Buscar</button>
+    </form>
+{%endblock body%}

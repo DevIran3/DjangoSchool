@@ -11,7 +11,7 @@ def Home(request):
     return render(request, 'TempCurso/index.html')
 
 def SelectCurso(request):
-    clsCurso = ClsCurso.objects.all()
+    clsCurso = ClsCurso.objects.filter(estado = 1)
     return render(request, 'TempCurso/SelectCurso.html', {'clsCurso': clsCurso})
 
 def InsertCurso(request):
@@ -19,13 +19,15 @@ def InsertCurso(request):
         _descripcion = request.POST.get('descripcion')
         _hora_entrada = request.POST.get('hora_entrada')
         _hora_salida = request.POST.get('hora_salida')
+        _estado = request.POST.get('estado')
         _fk_profesor = request.POST.get('fk_profesor')
         _fk_carrera = request.POST.get('fk_carrera')
         clsCurso = ClsCurso(descripcion = _descripcion,
-                              hora_entrada = _hora_entrada,
-                              hora_salida = _hora_salida,
-                              fk_profesor = ClsProfesor.objects.get(pk_profesor = _fk_profesor),
-                              fk_carrera = ClsCarrera.objects.get(id = _fk_carrera))
+                            hora_entrada = _hora_entrada,
+                            hora_salida = _hora_salida,
+                            estado = _estado,
+                            fk_profesor = ClsProfesor.objects.get(pk_profesor = _fk_profesor),
+                            fk_carrera = ClsCarrera.objects.get(id = _fk_carrera))
         clsCurso.save()
         return redirect('http://127.0.0.1:8000/Curso/Inicio/')
     return render(request, 'TempCurso/InsertCurso.html')
@@ -65,10 +67,10 @@ def DeleteCurso(request, pk_curso):
             return redirect('http://127.0.0.1:8000/Curso/Inicio/')
     except Exception as e:
         Error = "No se encontro ningun registro con el codigo", pk_curso
-    return render(request, 'TempAdministrativo/DeleteAdministrativo.html', {'clsCurso':clsCurso, 'Error':Error})
+    return render(request, 'TempCurso/DeleteCurso.html', {'clsCurso':clsCurso, 'Error':Error})
 
-def FindDeleteAdministrativo(request):
+def FindDeleteCurso(request):
     if request.method == 'GET':
-        return render(request, 'TempAdministrativo/FindAdministrativo.html')
+        return render(request, 'TempCurso/FindCurso.html')
     if request.method == 'POST':
-        return redirect('DeleteAdministrativo', request.POST.get('pk_administrativo'))
+        return redirect('DeleteCurso', request.POST.get('pk_curso'))

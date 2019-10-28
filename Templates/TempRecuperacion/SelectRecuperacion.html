@@ -1,0 +1,51 @@
+{%extends 'TempRecuperacion/index.html'%}
+{%block title%}
+    Seleccionar Recuperacion
+{%endblock title%}
+{%block h1%}
+    Seleccionar Recuperacion
+{%endblock h1%}
+{%block body%}
+    {%if clsRecuperacion%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Final</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Actualizacion</th>
+                    <th>Estado</th>
+                    <th>Curso</th>
+                    <th>Carrera</th>
+                    <th>Profesor</th>
+                    <th>Establecimiento</th>
+                    <th>Alumno</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Recuperacion in clsRecuperacion%}
+                <tr>
+                    <td>{{Recuperacion.final}}</td>
+                    <td>{{Recuperacion.fecha_ingreso}}</td>
+                    <td>{{Recuperacion.fecha_modificacion}}</td>
+                    <td>{{Recuperacion.estado}}</td>
+                    <td>{{Recuperacion.fk_curso.pk_curso}}-{{Recuperacion.fk_curso.descripcion}}</td>
+                    <td>{{Recuperacion.fk_carrera.id}}-{{Recuperacion.fk_carrera.descripcion}}</td>
+                    <td>{{Recuperacion.fk_profesor.pk_profesor}}-{{Recuperacion.fk_profesor.nombre}}</td>
+                    <td>{{Recuperacion.fk_establecimiento.pk_establecimiento}}-{{Recuperacion.fk_establecimiento.nombre}}</td>
+                    <td>{{Recuperacion.fk_alumno.pk_alumno}}-{{Recuperacion.fk_alumno.nombre}} {{Recuperacion.fk_alumno.apellido}}</td>
+                    <td>
+                        <a href="{%url 'UpdateRecuperacion' Recuperacion.pk_recuperacion%}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="{%url 'DeleteRecuperacion' Recuperacion.pk_recuperacion%}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+{%endblock body%}

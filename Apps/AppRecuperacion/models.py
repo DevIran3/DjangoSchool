@@ -12,6 +12,7 @@ class ClsRecuperacion(models.Model):
     final = models.IntegerField()
     fecha_ingreso = models.DateField()
     fecha_modificacion = models.DateField()
+    estado = models.IntegerField(default=1)
     fk_curso = models.ForeignKey(ClsCurso, null=False, blank=False, on_delete=models.CASCADE)
     fk_carrera = models.ForeignKey(ClsCarrera, null=False, blank=False, on_delete=models.CASCADE)
     fk_profesor = models.ForeignKey(ClsProfesor, null=False, blank=False, on_delete=models.CASCADE)
