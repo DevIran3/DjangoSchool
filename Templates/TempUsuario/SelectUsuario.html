@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>Codigo Usuario</th>
+                    <th>Usuario</th>
                     <th>Constraseña</th>
                     <th>Estado</th>
                     <th>Colegio</th>
@@ -22,6 +23,7 @@
                 {%for Usuario in clsUsuario%}
                 <tr>
                     <td>{{Usuario.codigo_usuario}}</td>
+                    <td>{{Usuario.usuario}}</td>
                     <td>{{Usuario.contrasena}}</td>
                     <td>{{Usuario.estado}}</td>
                     <td>{{Usuario.fk_school.nombre}}</td>

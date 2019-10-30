@@ -30,13 +30,14 @@ def InsertUsuario(request):
     if request.method == 'POST':
         print(request.POST)
         _codigo_usuario = request.POST.get('codigo_usuario')
+        _usuario = request.POST.get('usuario')
         _contrasena= request.POST.get('contrasena')
         _estado = request.POST.get('estado')
         _fk_school = request.POST.get('fk_school')
         print (_codigo_usuario, _contrasena, _estado, _fk_school)
 #       fk_school = ClsEstablecimiento.objects.get(pk_establecimiento = _fk_school)
 #       --> LO ENVIAMOS ASI POR QUE LA FK NECESITA NO SOLO EL NUMERO SINO EL OBJETO COMO TAL YA QUE LLEVA SUS ATRIBUTOS
-        clsUsuario = ClsUsuario(codigo_usuario = _codigo_usuario, contrasena = _contrasena, estado = _estado, fk_school = ClsEstablecimiento.objects.get(pk_establecimiento = _fk_school))
+        clsUsuario = ClsUsuario(codigo_usuario = _codigo_usuario, contrasena = _contrasena, estado = _estado, fk_school = ClsEstablecimiento.objects.get(pk_establecimiento = _fk_school), usuario = _usuario)
         clsUsuario.save()
         return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
     return render(request, 'TempUsuario/InsertUsuario.html')

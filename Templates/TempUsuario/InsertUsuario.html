@@ -13,8 +13,10 @@
         {%else%}
             <label>Codigo Usuario</label>
             <input type="text" name="codigo_usuario" content={{UsuarioForm.codigo_usuario}}>
+            <label>Usuario Correo</label>
+            <input type="email" name="usuario" content={{UsuarioForm.usuario}} required>
             <label>Contrasena</label>
-            <input type="text" name="contrasena" content={{UsuarioForm.contrasena}}>
+            <input type="password" name="contrasena" content={{UsuarioForm.contrasena}} required>
             <label>Estado</label>
             <input type="number" name="estado" content={{UsuarioForm.estado}}>
             <label>Codigo Establecimiento actual: {{clsUsuario.fk_school.pk_establecimiento}}</label>
