@@ -7,7 +7,7 @@ from Apps.AppUsuario.models import ClsUsuario
 
 # Create your views here.
 
-def Home(request):
+def HomeAlumno(request):
     return render(request, 'TempAlumno/index.html')
 
 def SelectAlumno(request):
@@ -35,7 +35,7 @@ def InsertAlumno(request):
                               fk_carrera = ClsCarrera.objects.get(id = _fk_carrera),
                               fk_usuario = ClsUsuario.objects.get(pk_usuario = _fk_usuario))
         clsAlumno.save()
-        return redirect('http://127.0.0.1:8000/Alumno/Inicio/')
+        return redirect('HomeAlumno')
     return render(request, 'TempAlumno/InsertAlumno.html')
 
 def UpdateAlumno(request, pk_alumno):
@@ -49,7 +49,7 @@ def UpdateAlumno(request, pk_alumno):
             formAlumno = FormAlumno(request.POST, instance = clsAlumno)
             if formAlumno.is_valid():
                 formAlumno.save()
-                return redirect('http://127.0.0.1:8000/Alumno/Inicio/')
+                return redirect('HomeAlumno')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempAlumno/InsertAlumno.html', {'formAlumno':formAlumno, 'Error':Error, 'clsAlumno':clsAlumno})
@@ -70,7 +70,7 @@ def DeleteAlumno(request, pk_alumno):
 #   clsEstablecimiento.delete()
             clsAlumno.estado = 0
             clsAlumno.save()
-            return redirect('http://127.0.0.1:8000/Alumno/Inicio/')
+            return redirect('HomeAlumno')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_alumno
     return render(request, 'TempAlumno/DeleteAlumno.html', {'clsAlumno':clsAlumno, 'Error':Error})

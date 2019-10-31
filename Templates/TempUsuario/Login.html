@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{%block title%}Sesion de Inicio{%endblock title%}</title>
+    <h1>{%block h1%}Sesion de Inicio{%endblock h1%}</h1>
+</head>
+<body>
+    <form method="POST">
+        {%csrf_token%}
+
+            <select name="codigo_usuario" required>
+                <option value="Estudiante">Estudiante</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Administrativo">Administrativo</option>
+            </select>
+            <br>
+            <input type="email" name="usuario" required placeholder="Ingresa Usuario">
+            <br>
+            <input type="password" name="contrasena" required placeholder="Ingresa Password">
+            <br>
+            <button type="submit">Insertar</button>
+
+    </form>
+</body>

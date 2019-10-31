@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import DeleteNota, FindDeleteNota, Home, SelectNota, InsertNota, UpdateNota, FindUpdateNota
+from .views import DeleteNota, FindDeleteNota, HomeNota, SelectNota, InsertNota, UpdateNota, FindUpdateNota
 
 urlpatterns = [
-    path('Inicio/', Home, name = 'index'),
+    path('Inicio/', HomeNota, name ='HomeNota'),
     path('SeleccionarNota/', SelectNota, name = 'SelectNota'),
     path('InsertarNota/', InsertNota, name = 'InsertNota'),
     path('ActualizarNota/<int:pk_nota>', UpdateNota, name = 'UpdateNota'),

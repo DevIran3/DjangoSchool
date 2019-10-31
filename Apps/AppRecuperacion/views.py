@@ -9,7 +9,7 @@ from Apps.AppEstablecimiento.models import ClsEstablecimiento
 from Apps.AppAlumno.models import ClsAlumno
 # Create your views here.
 
-def Home(request):
+def HomeRecuperacion(request):
     return render(request, 'TempRecuperacion/index.html')
 
 def SelectRecuperacion(request):
@@ -36,7 +36,7 @@ def InsertRecuperacion(request):
                           fk_alumno = ClsAlumno.objects.get(pk_alumno = _fk_alumno)
                           )
         clsRecuperacion.save()
-        return redirect('http://127.0.0.1:8000/Recuperacion/Inicio/')
+        return redirect('HomeRecuperacion')
     return render(request, 'TempRecuperacion/InsertRecuperacion.html')
 
 def UpdateRecuperacion(request, pk_recuperacion):

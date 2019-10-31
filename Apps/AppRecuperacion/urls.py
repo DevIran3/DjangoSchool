@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import Home, SelectRecuperacion, InsertRecuperacion, FindUpdateRecuperacion, UpdateRecuperacion, FindDeleteRecuperacion, DeleteRecuperacion
+from .views import HomeRecuperacion, SelectRecuperacion, InsertRecuperacion, FindUpdateRecuperacion, UpdateRecuperacion, FindDeleteRecuperacion, DeleteRecuperacion
 
 urlpatterns = [
-    path('Inicio/', Home, name = 'index'),
+    path('Inicio/', HomeRecuperacion, name ='HomeRecuperacion'),
     path('SeleccionarRecuperacion/', SelectRecuperacion, name = 'SelectRecuperacion'),
     path('InsertarRecuperacion/', InsertRecuperacion, name = 'InsertRecuperacion'),
     path('ActualizarRecuperacion/<int:pk_recuperacion>', UpdateRecuperacion, name = 'UpdateRecuperacion'),

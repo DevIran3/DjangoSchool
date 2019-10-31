@@ -1,9 +1,9 @@
 from django.urls import path
 # .views import functions
-from .views import FindDeleteProfesor ,DeleteProfesor ,FindUpdateProfesor ,UpdateProfesor ,Home, SelectProfesor, InsertProfesor
+from .views import FindDeleteProfesor ,DeleteProfesor ,FindUpdateProfesor ,UpdateProfesor ,HomeProfesor, SelectProfesor, InsertProfesor
 
 urlpatterns = [
-    path('Inicio/', Home, name = 'index'),
+    path('Inicio/', HomeProfesor, name ='index'),
     path('SeleccionarProfesor/', SelectProfesor, name = 'SelectProfesor'),
     path('InsertarProfesor/', InsertProfesor, name = 'InsertProfesor'),
     path('ActualizarProfesor/<int:pk_profesor>', UpdateProfesor, name = 'UpdateProfesor'),

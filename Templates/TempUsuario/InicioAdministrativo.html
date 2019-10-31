@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{%block title%}SesionAdministrativo{%endblock title%}</title>
+    <h1>{%block h1%}Seccion Administrativa{%endblock h1%}</h1>
+
+</head>
+<body>
+    <label>Administrator(ra) {{clsAdministrativo.nombre}} {{clsAdministrativo.apellido}}</label>
+    <br>
+    <label>{{clsUsuario.usuario}}</label>
+    <p>a representacio del grupo de ingeniera se crea esta seccion para los administradores del sistema
+        web del instituto al cual se le crea esta pagina web para poder administrar usuarios, notas, alumnos,
+        acceso a las posibilidad de actulizar y desabilitar datos del sistemas para que ya no sean visibles.
+    </p>
+    <a href="{%url 'HomeAdministrativo'%}">Administrativo</a>
+    <a href="{%url 'HomeAlumno'%}">Alumno</a>
+    <a href="{%url 'HomeProfesor'%}">Profesor</a>
+    <a href="{%url 'HomeNota'%}">Notas</a>
+    <a href="{%url 'HomeUsuario'%}">Usuario</a>
+    <a href="{%url 'HomeEstablecimiento'%}">Establecimiento</a>
+    <a href="{%url 'HomeRecuperacion'%}">Recuperacion</a>
+    {%block body%}
+    {%endblock body%}
+</body>
+</html>

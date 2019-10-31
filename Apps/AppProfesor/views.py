@@ -5,7 +5,7 @@ from Apps.AppUsuario.models import ClsUsuario
 from .forms import FormProfesor
 # Create your views here.
 
-def Home(request):
+def HomeProfesor(request):
     return render(request, 'TempProfesor/index.html')
 
 def SelectProfesor(request):
@@ -27,7 +27,7 @@ def InsertProfesor(request):
                                   estado = _estado,
                                   fk_usuario = ClsUsuario.objects.get(pk_usuario = _fk_usuario))
         clsProfesor.save()
-        return redirect('http://127.0.0.1:8000/Profesor/Inicio/')
+        return redirect('HomeProfesor')
     return render(request, 'TempProfesor/InsertProfesor.html')
 
 def UpdateProfesor(request, pk_profesor):
@@ -41,7 +41,7 @@ def UpdateProfesor(request, pk_profesor):
             formProfesor = FormProfesor(request.POST, instance = clsProfesor)
             if formProfesor.is_valid():
                 formProfesor.save()
-                return redirect('http://127.0.0.1:8000/Profesor/Inicio/')
+                return redirect('HomeProfesor')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempProfesor/InsertProfesor.html', {'formProfesor':formProfesor, 'Error':Error, 'clsProfesor':clsProfesor})
@@ -62,7 +62,7 @@ def DeleteProfesor(request, pk_profesor):
 #   clsEstablecimiento.delete()
             clsProfesor.estado = 0
             clsProfesor.save()
-            return redirect('http://127.0.0.1:8000/Profesor/Inicio/')
+            return redirect('HomeProfesor')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_profesor
     return render(request, 'TempProfesor/DeleteProfesor.html', {'clsProfesor':clsProfesor, 'Error':Error})

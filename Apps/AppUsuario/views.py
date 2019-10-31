@@ -2,15 +2,47 @@ from functools import partial
 from tkinter.tix import _dummyFileComboBox
 
 from django.shortcuts import render, redirect
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .forms import FormUsuario
+from Apps.AppAlumno.models import ClsAlumno
+from Apps.AppAdministrativo.models import ClsAdministrativo
 from .models import ClsUsuario
 from Apps.AppEstablecimiento.models import ClsEstablecimiento
 
 # Create your views here.
 from requests import request
 
-def Home(request):
+def Login(request):
+    try:
+        Error = None
+        if request.method == "POST":
+            clsUsuario = ClsUsuario.objects.get(usuario = request.POST.get('usuario'))
+
+            if request.POST.get('codigo_usuario') == 'Estudiante':
+                clsAlumno = ClsAlumno.objects.get(fk_usuario=clsUsuario)
+                print("ALUMNO: ", clsAlumno.nombre)
+                if clsUsuario.codigo_usuario == "1111" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
+                    return render (request, 'TempUsuario/InicioEstudiante.html', {'clsUsuario':clsUsuario, 'clsAlumno':clsAlumno})
+
+            elif request.POST.get('codigo_usuario') == 'Profesor':
+                if clsUsuario.codigo_usuario == "2222" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
+                    print("PROFESOR")
+                    return render (request, 'TempUsuario/InicioProfesor.html', )
+
+            elif request.POST.get('codigo_usuario') == 'Administrativo':
+                clsAdministrativo = ClsAdministrativo.objects.get(fk_usuario=clsUsuario)
+                print("ADMINISTRATIVO: ", clsAdministrativo.nombre)
+                if clsUsuario.codigo_usuario == "XXXX" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
+                    return render (request, 'TempUsuario/InicioAdministrativo.html', {'clsUsuario':clsUsuario, 'clsAdministrativo':clsAdministrativo})
+
+    except ObjectDoesNotExist as ex:
+        Error = ex
+        print("ERROR")
+        return render(request, 'TempUsuario/Login.html', {'Error': Error})
+
+    return render(request, 'TempUsuario/Login.html', {'Error':Error})
+
+def HomeUsuario(request):
     return render(request, 'TempUsuario/index.html')
 
 def SelectUsuario(request):

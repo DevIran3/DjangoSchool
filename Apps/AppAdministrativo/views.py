@@ -7,7 +7,7 @@ from .forms import FormAdministrativo
 # Create your views here.
 
 
-def Home(request):
+def HomeAdministrativo(request):
     return render(request, 'TempAdministrativo/index.html')
 
 def SelectAdministrativo(request):

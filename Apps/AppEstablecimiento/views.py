@@ -9,7 +9,7 @@ from .models import ClsEstablecimiento
 # Create your views here.
 from requests import request
 
-def Home(request):
+def HomeEstablecimiento(request):
     return render(request, 'TempEstablecimiento/index.html')
 
 def InsertEstablecimiento(request):
@@ -22,7 +22,7 @@ def InsertEstablecimiento(request):
         print (_nombre, _direccion, _fundacion, _estado)
         clsEstablecimiento = ClsEstablecimiento(nombre = _nombre, direccion = _direccion, fundacion = _fundacion, estado = _estado)
         clsEstablecimiento.save()
-        return redirect('index')
+        return redirect('HomeEstablecimiento')
     return render(request, 'TempEstablecimiento/InsertEstablecimiento.html')
 
 def SelectEstablecimiento(request):
@@ -41,7 +41,7 @@ def UpdateEstablecimiento(request, pk_establecimiento):
             EstablecimientoForm = FormEstablecimiento(request.POST, instance=clsEstablecimiento)
             if EstablecimientoForm.is_valid():
                 EstablecimientoForm.save()
-                return redirect('index')
+                return redirect('HomeEstablecimiento')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempEstablecimiento/InsertEstablecimiento.html', {'EstablecimientoForm':EstablecimientoForm, 'Error':Error})
@@ -56,7 +56,7 @@ def DeleteEstablecimiento(request, pk_establecimiento):
 #        clsEstablecimiento.delete()
             clsEstablecimiento.estado = 0
             clsEstablecimiento.save()
-            return redirect('index')
+            return redirect('HomeEstablecimiento')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_establecimiento
     return render(request, 'TempEstablecimiento/DeleteEstablecimiento.html', {'clsEstablecimiento':clsEstablecimiento, 'Error':Error})

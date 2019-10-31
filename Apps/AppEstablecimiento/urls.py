@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import FindDeleteEstablecimiento, FindUpdateEstablecimiento ,InsertEstablecimiento, Home, SelectEstablecimiento, UpdateEstablecimiento, DeleteEstablecimiento
+from .views import FindDeleteEstablecimiento, FindUpdateEstablecimiento ,InsertEstablecimiento, HomeEstablecimiento, SelectEstablecimiento, UpdateEstablecimiento, DeleteEstablecimiento
 
 urlpatterns = [
-    path('Home/', Home, name = 'index'),
+    path('HomeAdministrativo/', HomeEstablecimiento, name ='index'),
     path('InsertarEstablecimiento/', InsertEstablecimiento, name = 'InsertEstablecimiento'),
     path('SeleccionarEstablecimiento/' , SelectEstablecimiento, name = 'SelectEstablecimiento'),
     path('ActualizarEstablecimiento/<int:pk_establecimiento>', UpdateEstablecimiento, name = 'UpdateEstablecimiento'),

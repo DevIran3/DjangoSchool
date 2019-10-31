@@ -11,7 +11,7 @@ from Apps.AppAlumno.models import ClsAlumno
 
 # Create your views here.
 
-def Home(request):
+def HomeNota(request):
     return render(request, 'TempNota/index.html')
 
 def SelectNota(request):
@@ -46,7 +46,7 @@ def InsertNota(request):
                           fk_alumno = ClsAlumno.objects.get(pk_alumno = _fk_alumno)
                           )
         clsNota.save()
-        return redirect('http://127.0.0.1:8000/Nota/Inicio/')
+        return redirect('HomeNota')
     return render(request, 'TempNota/InsertNota.html')
 
 def UpdateNota(request, pk_nota):
@@ -60,7 +60,7 @@ def UpdateNota(request, pk_nota):
             formNota = FormNota(request.POST, instance = clsNota)
             if formNota.is_valid():
                 formNota.save()
-                return redirect('http://127.0.0.1:8000/Nota/Inicio/')
+                return redirect('HomeNota')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempNota/InsertNota.html', {'formNota':formNota, 'Error':Error, 'clsNota':clsNota})
@@ -81,7 +81,7 @@ def DeleteNota(request, pk_nota):
 #   clsEstablecimiento.delete()
             clsNota.estado = 0
             clsNota.save()
-            return redirect('http://127.0.0.1:8000/Nota/Inicio/')
+            return redirect('HomeNota')
     except Exception as e:
         Error = "No se encontro ningun registro con el codigo", pk_nota
     return render(request, 'TempNota/DeleteNota.html', {'clsNota':clsNota, 'Error':Error})
