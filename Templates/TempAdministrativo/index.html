@@ -10,11 +10,12 @@
     <h1>{%block h1%}Administrativo{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Administrativo/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Administrativo/SeleccionarAdministrativo/">Listar</a>
-    <a href="http://127.0.0.1:8000/Administrativo/InsertarAdministrativo/">Crear</a>
-    <a href="http://127.0.0.1:8000/Administrativo/BuscarActualizarAdministrativo/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Administrativo/BuscarEliminarAdministrativo/">Eliminar</a>
+    <a href="{%url 'HomeAdministrativo'%}">Inicio</a>
+    <a href="{%url 'SelectAdministrativo'%}">Listar</a>
+    <a href="{%url 'InsertAdministrativo'%}">Crear</a>
+    <a href="{%url 'FindUpdateAdministrativo'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteAdministrativo'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}

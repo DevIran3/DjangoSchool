@@ -29,7 +29,7 @@ def InsertAdministrativo(request):
                               estado = _estado,
                               fk_usuario = ClsUsuario.objects.get(pk_usuario = _fk_usuario))
         clsAdministrativo.save()
-        return redirect('http://127.0.0.1:8000/Administrativo/Inicio/')
+        return redirect('HomeAdministrativo')
     return render(request, 'TempAdministrativo/InsertAdministrativo.html')
 
 def UpdateAdministrativo(request, pk_administrativo):
@@ -43,7 +43,7 @@ def UpdateAdministrativo(request, pk_administrativo):
             formAdministrativo = FormAdministrativo(request.POST, instance = clsAdministrativo)
             if formAdministrativo.is_valid():
                 formAdministrativo.save()
-                return redirect('http://127.0.0.1:8000/Administrativo/Inicio/')
+                return redirect('HomeAdministrativo/')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempAdministrativo/InsertAdministrativo.html', {'formAdministrativo':formAdministrativo, 'Error':Error, 'clsAdministrativo':clsAdministrativo})
@@ -64,7 +64,7 @@ def DeleteAdministrativo(request, pk_administrativo):
 #   clsEstablecimiento.delete()
             clsAdministrativo.estado = 0
             clsAdministrativo.save()
-            return redirect('http://127.0.0.1:8000/Administrativo/Inicio/')
+            return redirect('HomeAdministrativo')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_administrativo
     return render(request, 'TempAdministrativo/DeleteAdministrativo.html', {'clsAdministrativo':clsAdministrativo, 'Error':Error})

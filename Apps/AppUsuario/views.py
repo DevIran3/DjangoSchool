@@ -4,43 +4,14 @@ from tkinter.tix import _dummyFileComboBox
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .forms import FormUsuario
+from .models import ClsUsuario
+from Apps.AppProfesor.models import ClsProfesor
 from Apps.AppAlumno.models import ClsAlumno
 from Apps.AppAdministrativo.models import ClsAdministrativo
-from .models import ClsUsuario
 from Apps.AppEstablecimiento.models import ClsEstablecimiento
 
 # Create your views here.
 from requests import request
-
-def Login(request):
-    try:
-        Error = None
-        if request.method == "POST":
-            clsUsuario = ClsUsuario.objects.get(usuario = request.POST.get('usuario'))
-
-            if request.POST.get('codigo_usuario') == 'Estudiante':
-                clsAlumno = ClsAlumno.objects.get(fk_usuario=clsUsuario)
-                print("ALUMNO: ", clsAlumno.nombre)
-                if clsUsuario.codigo_usuario == "1111" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
-                    return render (request, 'TempUsuario/InicioEstudiante.html', {'clsUsuario':clsUsuario, 'clsAlumno':clsAlumno})
-
-            elif request.POST.get('codigo_usuario') == 'Profesor':
-                if clsUsuario.codigo_usuario == "2222" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
-                    print("PROFESOR")
-                    return render (request, 'TempUsuario/InicioProfesor.html', )
-
-            elif request.POST.get('codigo_usuario') == 'Administrativo':
-                clsAdministrativo = ClsAdministrativo.objects.get(fk_usuario=clsUsuario)
-                print("ADMINISTRATIVO: ", clsAdministrativo.nombre)
-                if clsUsuario.codigo_usuario == "XXXX" and request.POST.get('usuario') == clsUsuario.usuario and request.POST.get('contrasena') == clsUsuario.contrasena:
-                    return render (request, 'TempUsuario/InicioAdministrativo.html', {'clsUsuario':clsUsuario, 'clsAdministrativo':clsAdministrativo})
-
-    except ObjectDoesNotExist as ex:
-        Error = ex
-        print("ERROR")
-        return render(request, 'TempUsuario/Login.html', {'Error': Error})
-
-    return render(request, 'TempUsuario/Login.html', {'Error':Error})
 
 def HomeUsuario(request):
     return render(request, 'TempUsuario/index.html')
@@ -71,7 +42,7 @@ def InsertUsuario(request):
 #       --> LO ENVIAMOS ASI POR QUE LA FK NECESITA NO SOLO EL NUMERO SINO EL OBJETO COMO TAL YA QUE LLEVA SUS ATRIBUTOS
         clsUsuario = ClsUsuario(codigo_usuario = _codigo_usuario, contrasena = _contrasena, estado = _estado, fk_school = ClsEstablecimiento.objects.get(pk_establecimiento = _fk_school), usuario = _usuario)
         clsUsuario.save()
-        return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
+        return redirect('HomeUsuario')
     return render(request, 'TempUsuario/InsertUsuario.html')
 
 def UpdateUsuario(request, pk_usuario):
@@ -85,7 +56,7 @@ def UpdateUsuario(request, pk_usuario):
             UsuarioForm = FormUsuario(request.POST, instance = clsUsuario)
             if UsuarioForm.is_valid():
                 UsuarioForm.save()
-                return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
+                return redirect('HomeUsuario')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempUsuario/InsertUsuario.html', {'UsuarioForm':UsuarioForm, 'Error':Error, 'clsUsuario':clsUsuario})
@@ -106,7 +77,7 @@ def DeleteUsuario(request, pk_usuario):
 #   clsEstablecimiento.delete()
             clsUsuario.estado = 0
             clsUsuario.save()
-            return redirect('http://127.0.0.1:8000/Usuario/Inicio/')
+            return redirect('HomeUsuario')
     except Exception as e:
         Error = "No se encontro ningun registro con ", pk_usuario
     return render(request, 'TempUsuario/DeleteUsuario.html', {'clsUsuario':clsUsuario, 'Error':Error})
@@ -116,3 +87,26 @@ def FindDeleteUsuario(request):
         return render(request, 'TempUsuario/FindDeleteUsuario.html')
     if request.method == 'POST':
         return redirect('DeleteUsuario', request.POST.get('pk_usuario'))
+
+def Login(request):
+    try:
+        if request.method == "POST":
+            clsUsuario = ClsUsuario.objects.get(usuario=request.POST.get('usuario'))
+            print(clsUsuario)
+            if request.POST.get('codigo_usuario') == "Administrativo" and clsUsuario.codigo_usuario == 'XXXX' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
+                return redirect('Administrativo')
+            elif request.POST.get('codigo_usuario') == "Profesor" and clsUsuario.codigo_usuario == '2222' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
+                print("PROFESOR")
+            elif request.POST.get('codigo_usuario') == "Alumno" and clsUsuario.codigo_usuario == '1111' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
+                print("ALUMNO")
+        else:
+            print("METODO GET")
+    except Exception as ex:
+        Error = ex
+    return render(request, 'TempSesion/Login.html')
+
+def Administrativo(request):
+    try:
+        return render(request, 'TempSesion/Administrativo.html')
+    except Exception as ex:
+        Error = ex

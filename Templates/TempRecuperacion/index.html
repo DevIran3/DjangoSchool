@@ -10,11 +10,12 @@
     <h1>{%block h1%}Recuperacion{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Recuperacion/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Recuperacion/SeleccionarRecuperacion/">Listar</a>
-    <a href="http://127.0.0.1:8000/Recuperacion/InsertarRecuperacion/">Crear</a>
-    <a href="http://127.0.0.1:8000/Recuperacion/BuscarActualizarRecuperacion/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Recuperacion/BuscarEliminarRecuperacion/">Eliminar</a>
+    <a href="{%url 'HomeRecuperacion'%}">Inicio</a>
+    <a href="{%url 'SelectRecuperacion'%}">Listar</a>
+    <a href="{%url 'InsertRecuperacion'%}">Crear</a>
+    <a href="{%url 'FindUpdateRecuperacion'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteRecuperacion'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresa</a>
     {%block body%}
     {%endblock body%}
 </body>

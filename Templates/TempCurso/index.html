@@ -10,11 +10,12 @@
     <h1>{%block h1%}Curso{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Curso/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Curso/SeleccionarCurso/">Listar</a>
-    <a href="http://127.0.0.1:8000/Curso/InsertarCurso/">Crear</a>
-    <a href="http://127.0.0.1:8000/Curso/BuscarActualizarCurso/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Curso/BuscarEliminarCurso/">Eliminar</a>
+    <a href="{%url 'HomeCurso'%}">Inicio</a>
+    <a href="{%url 'SelectCurso'%}">Listar</a>
+    <a href="{%url 'InsertCurso'%}">Crear</a>
+    <a href="{%url 'FindUpdateCurso'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteCurso'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}

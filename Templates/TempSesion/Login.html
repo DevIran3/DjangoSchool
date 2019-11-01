@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=divice-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>{%block title%}Sesion de Inicio{%endblock title%}</title>
-    <h1>{%block h1%}Sesion de Inicio{%endblock h1%}</h1>
+    <title>Login</title>
 </head>
 <body>
+    <h1>Inicion de Sesion</h1>
     <form method="POST">
         {%csrf_token%}
-
-            <select name="codigo_usuario" required>
-                <option value="Estudiante">Estudiante</option>
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <select required name="codigo_usuario">
                 <option value="Profesor">Profesor</option>
+                <option value="Alumno">Alumno</option>
                 <option value="Administrativo">Administrativo</option>
             </select>
-            <br>
-            <input type="email" name="usuario" required placeholder="Ingresa Usuario">
-            <br>
-            <input type="password" name="contrasena" required placeholder="Ingresa Password">
-            <br>
-            <button type="submit">Insertar</button>
-
+            <input type="email" name="usuario" required>
+            <input type="password" name="contrasena" required>
+            <button type="submit">Acceder</button>
+        {%endif%}
     </form>
 </body>
+</html>
+

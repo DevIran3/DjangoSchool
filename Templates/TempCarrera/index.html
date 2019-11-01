@@ -10,11 +10,12 @@
     <h1>{%block h1%}Carrera{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Carrera/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Carrera/SeleccionarCarrera/">Listar</a>
-    <a href="http://127.0.0.1:8000/Carrera/InsertarCarrera/">Crear</a>
-    <a href="http://127.0.0.1:8000/Carrera/BuscarActualizarCarrera/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Carrera/BuscarEliminarCarrera/">Eliminar</a>
+    <a href="{%url 'HomeCarrera'%}">Inicio</a>
+    <a href="{%url 'SelectCarrera'%}">Listar</a>
+    <a href="{%url 'InsertCarrera'%}">Crear</a>
+    <a href="{%url 'FindUpdateCarrera'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteCarrera'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}

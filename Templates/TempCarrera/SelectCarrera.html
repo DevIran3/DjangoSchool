@@ -10,6 +10,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Codigo</th>
                     <th>Descripcion</th>
                     <th>Grado</th>
                     <th>Seccion</th>
@@ -21,6 +22,7 @@
             <tbody>
                 {%for Carrera in clsCarrera%}
                 <tr>
+                    <td>{{Carrera.id}}</td>
                     <td>{{Carrera.descripcion}}</td>
                     <td>{{Carrera.grado}}</td>
                     <td>{{Carrera.seccion}}</td>

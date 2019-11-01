@@ -10,6 +10,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Codigo</th>
                     <th>Codigo Usuario</th>
                     <th>Usuario</th>
                     <th>Constraseña</th>
@@ -22,6 +23,7 @@
             <tbody>
                 {%for Usuario in clsUsuario%}
                 <tr>
+                    <td>{{Usuario.pk_usuario}}</td>
                     <td>{{Usuario.codigo_usuario}}</td>
                     <td>{{Usuario.usuario}}</td>
                     <td>{{Usuario.contrasena}}</td>

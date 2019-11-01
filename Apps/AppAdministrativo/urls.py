@@ -1,9 +1,13 @@
 from django.urls import path
+from Apps.AppUsuario.views import Administrativo
 # .views import functions
 from .views import FindDeleteAdministrativo, DeleteAdministrativo, HomeAdministrativo, SelectAdministrativo, InsertAdministrativo, FindUpdateAdministrativo, UpdateAdministrativo
 
 urlpatterns = [
-    path('Inicio/', HomeAdministrativo, name ='index'),
+
+    path('Administrativo', Administrativo, name = 'Administrativo'),
+
+    path('Inicio/', HomeAdministrativo, name ='HomeAdministrativo'),
     path('SeleccionarAdministrativo/', SelectAdministrativo, name = 'SelectAdministrativo'),
     path('InsertarAdministrativo/', InsertAdministrativo, name = 'InsertAdministrativo'),
     path('ActualizarAdministrativo/<int:pk_administrativo>', UpdateAdministrativo, name = 'UpdateAdministrativo'),

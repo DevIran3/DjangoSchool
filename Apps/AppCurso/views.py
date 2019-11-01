@@ -7,7 +7,7 @@ from .forms import FormCurso
 
 # Create your views here.
 
-def Home(request):
+def HomeCurso(request):
     return render(request, 'TempCurso/index.html')
 
 def SelectCurso(request):
@@ -29,7 +29,7 @@ def InsertCurso(request):
                             fk_profesor = ClsProfesor.objects.get(pk_profesor = _fk_profesor),
                             fk_carrera = ClsCarrera.objects.get(id = _fk_carrera))
         clsCurso.save()
-        return redirect('http://127.0.0.1:8000/Curso/Inicio/')
+        return redirect('HomeCurso')
     return render(request, 'TempCurso/InsertCurso.html')
 
 def UpdateCurso(request, pk_curso):
@@ -43,7 +43,7 @@ def UpdateCurso(request, pk_curso):
             formCurso = FormCurso(request.POST, instance = clsCurso)
             if formCurso.is_valid():
                 formCurso.save()
-                return redirect('http://127.0.0.1:8000/Curso/Inicio/')
+                return redirect('HomeCurso')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempCurso/InsertCurso.html', {'formCurso':formCurso, 'Error':Error, 'clsCurso':clsCurso})
@@ -64,7 +64,7 @@ def DeleteCurso(request, pk_curso):
 #   clsEstablecimiento.delete()
             clsCurso.estado = 0
             clsCurso.save()
-            return redirect('http://127.0.0.1:8000/Curso/Inicio/')
+            return redirect('HomeCurso')
     except Exception as e:
         Error = "No se encontro ningun registro con el codigo", pk_curso
     return render(request, 'TempCurso/DeleteCurso.html', {'clsCurso':clsCurso, 'Error':Error})

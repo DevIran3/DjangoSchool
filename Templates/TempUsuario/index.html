@@ -10,12 +10,12 @@
     <h1>{%block h1%}Usuario{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Usuario/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Usuario/SeleccionarUsuario/">Listar</a>
-    <a href="http://127.0.0.1:8000/Usuario/InsertarUsuario/">Crear</a>
-    <a href="http://127.0.0.1:8000/Usuario/BuscarActualizarUsuario/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Usuario/BuscarEliminarUsuario/">Eliminar</a>
-
+    <a href="{%url 'HomeUsuario'%}">Inicio</a>
+    <a href="{%url 'SelectUsuario'%}">Listar</a>
+    <a href="{%url 'InsertUsuario'%}">Crear</a>
+    <a href="{%url 'FindUpdateUsuario'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteUsuario'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}

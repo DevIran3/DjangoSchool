@@ -10,11 +10,12 @@
     <h1>{%block h1%}Establecimiento{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Establecimiento/Home/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Establecimiento/InsertarEstablecimiento/">Crear</a>
-    <a href="http://127.0.0.1:8000/Establecimiento/SeleccionarEstablecimiento/">Listar</a>
-    <a href="http://127.0.0.1:8000/Establecimiento/BuscarActualizarEstablecimiento/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Establecimiento/BuscarDeleteEstablecimiento/">Eliminar</a>
+    <a href="{%url 'HomeEstablecimiento'%}">Inicio</a>
+    <a href="{%url 'InsertEstablecimiento'%}">Crear</a>
+    <a href="{%url 'SelectEstablecimiento'%}">Listar</a>
+    <a href="{%url 'FindUpdateEstablecimiento'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteEstablecimiento'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}

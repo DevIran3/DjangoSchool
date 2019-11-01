@@ -50,7 +50,7 @@ def UpdateRecuperacion(request, pk_recuperacion):
             formRecuperacion = FormRecuperacion(request.POST, instance = clsRecuperacion)
             if formRecuperacion.is_valid():
                 formRecuperacion.save()
-                return redirect('http://127.0.0.1:8000/Recuperacion/Inicio/')
+                return redirect('HomeRecuperacion')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempRecuperacion/InsertRecuperacion.html', {'formRecuperacion':formRecuperacion, 'Error':Error, 'clsRecuperacion':clsRecuperacion})
@@ -71,7 +71,7 @@ def DeleteRecuperacion(request, pk_recuperacion):
 #   clsEstablecimiento.delete()
             clsRecuperacion.estado = 0
             clsRecuperacion.save()
-            return redirect('http://127.0.0.1:8000/Recuperacion/Inicio/')
+            return redirect('HomeRecuperacion')
     except Exception as e:
         Error = "No se encontro ningun registro con el codigo", pk_recuperacion
     return render(request, 'TempRecuperacion/DeleteRecuperacion.html', {'clsRecuperacion':clsRecuperacion, 'Error':Error})

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%block head%}
+        <title>{%block title%}Administracion{%endblock title%}</title>
+        <h1>{%block h1%}Administracion{%endblock h1%}</h1>
+    {%endblock head%}
+</head>
+<body>
+    <a href="{%url 'Login'%}">Cerrar Sesion</a>
+    <a href="{%url 'HomeEstablecimiento'%}">Establecimiento</a>
+    <a href="{%url 'HomeUsuario'%}">Usuario</a>
+    <a href="{%url 'HomeCarrera'%}">Carrera</a>
+    <a href="{%url 'HomeAlumno'%}">Alumno</a>
+    <a href="{%url 'HomeProfesor'%}">Profesor</a>
+    <a href="{%url 'HomeAdministrativo'%}">Administrativo</a>
+    <a href="{%url 'HomeCurso'%}">Curso</a>
+    <a href="{%url 'HomeNota'%}">Nota</a>
+    <a href="{%url 'HomeRecuperacion'%}">Recuperacion</a>
+    {%block body%}
+    {%endblock body%}
+</body>
+</html>

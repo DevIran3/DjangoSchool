@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=divice-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>{%block title%}Nota{%endblock title%}</title>
     <h1>{%block h1%}Nota{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Nota/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Nota/SeleccionarNota/">Listar</a>
-    <a href="http://127.0.0.1:8000/Nota/InsertarNota/">Crear</a>
-    <a href="http://127.0.0.1:8000/Nota/BuscarActualizarNota/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Nota/BuscarEliminarNota/">Eliminar</a>
+    <a href="{%url 'HomeNota'%}">Inicio</a>
+    <a href="{%url 'SelectNota'%}">Listar</a>
+    <a href="{%url 'InsertNota'%}">Crear</a>
+    <a href="{%url 'FindUpdateNota'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteNota'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresa</a>
     {%block body%}
     {%endblock body%}
 </body>

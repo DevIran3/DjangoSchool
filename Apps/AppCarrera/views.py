@@ -5,7 +5,7 @@ from .forms import FormCarrera
 
 # Create your views here.
 
-def Home(request):
+def HomeCarrera(request):
     return render(request, 'TempCarrera/index.html')
 
 def SelectCarrera(request):
@@ -22,9 +22,8 @@ def InsertCarrera(request):
         _estado = request.POST.get('estado')
         clsCarrera = ClsCarrera(descripcion = _descripcion, grado = _grado, seccion = _seccion, estado = _estado)
         print("UPDATE", _descripcion, _grado, _seccion, _estado)
-
         clsCarrera.save()
-        return redirect('http://127.0.0.1:8000/Carrera/Inicio/')
+        return redirect('HomeCarrera')
     return render(request, 'TempCarrera/InsertCarrera.html')
 
 def UpdateCarrera(request, id):
@@ -40,7 +39,7 @@ def UpdateCarrera(request, id):
             print("UPDATE",clsCarrera.id, clsCarrera.descripcion, clsCarrera.grado, clsCarrera.seccion, clsCarrera.estado)
             if CarreraForm.is_valid():
                 CarreraForm.save()
-                return redirect('http://127.0.0.1:8000/Carrera/Inicio/')
+                return redirect('HomeCarrera')
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempCarrera/InsertCarrera.html', {'CarreraForm':CarreraForm, 'Error':Error})
@@ -55,7 +54,7 @@ def DeleteCarrera(request, id):
 #        clsEstablecimiento.delete()
             clsCarrera.estado = 0
             clsCarrera.save()
-            return redirect('http://127.0.0.1:8000/Carrera/Inicio/')
+            return redirect('HomeCarrera')
     except Exception as e:
         Error = "No se encontro ningun registro con ", id
     return render(request, 'TempCarrera/DeleteCarrera.html', {'clsCarrera':clsCarrera, 'Error':Error})

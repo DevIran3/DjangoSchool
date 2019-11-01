@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import Home, SelectCurso, InsertCurso, UpdateCurso, FindUpdateCurso, DeleteCurso, FindDeleteCurso
+from Apps.AppUsuario.views import Administrativo
+from .views import HomeCurso, SelectCurso, InsertCurso, UpdateCurso, FindUpdateCurso, DeleteCurso, FindDeleteCurso
 
 urlpatterns = [
-    path('Inicio/', Home, name = 'index'),
+
+    path('Administrativo/', Administrativo, name = 'Administrativo'),
+
+    path('Inicio/', HomeCurso, name ='HomeCurso'),
     path('SeleccionarCurso/', SelectCurso, name = 'SelectCurso'),
     path('InsertarCurso/', InsertCurso, name = 'InsertCurso'),
     path('ActualizarCurso/<int:pk_curso>', UpdateCurso, name = 'UpdateCurso'),

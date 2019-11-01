@@ -10,6 +10,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Direccion</th>
                     <th>Fundacion</th>
@@ -21,6 +22,7 @@
             <tbody>
                 {%for Establecimiento in clsEstablecimientos%}
                 <tr>
+                    <td>{{Establecimiento.pk_establecimiento}}</td>
                     <td>{{Establecimiento.nombre}}</td>
                     <td>{{Establecimiento.direccion}}</td>
                     <td>{{Establecimiento.fundacion}}</td>

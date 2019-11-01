@@ -1,8 +1,12 @@
 from django.urls import path
+from Apps.AppUsuario.views import Administrativo
 from .views import FindDeleteEstablecimiento, FindUpdateEstablecimiento ,InsertEstablecimiento, HomeEstablecimiento, SelectEstablecimiento, UpdateEstablecimiento, DeleteEstablecimiento
 
 urlpatterns = [
-    path('HomeAdministrativo/', HomeEstablecimiento, name ='index'),
+
+    path('SesionAdministrativo/', Administrativo, name = 'Administrativo'),
+
+    path('HomeAdministrativo/', HomeEstablecimiento, name ='HomeEstablecimiento'),
     path('InsertarEstablecimiento/', InsertEstablecimiento, name = 'InsertEstablecimiento'),
     path('SeleccionarEstablecimiento/' , SelectEstablecimiento, name = 'SelectEstablecimiento'),
     path('ActualizarEstablecimiento/<int:pk_establecimiento>', UpdateEstablecimiento, name = 'UpdateEstablecimiento'),

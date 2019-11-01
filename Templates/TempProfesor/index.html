@@ -10,11 +10,12 @@
     <h1>{%block h1%}Profesor{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/Profesor/Inicio/">Inicio</a>
-    <a href="http://127.0.0.1:8000/Profesor/SeleccionarProfesor/">Listar</a>
-    <a href="http://127.0.0.1:8000/Profesor/InsertarProfesor/">Crear</a>
-    <a href="http://127.0.0.1:8000/Profesor/BuscarActualizarProfesor/">Actualizar</a>
-    <a href="http://127.0.0.1:8000/Profesor/BuscarEliminarProfesor/">Eliminar</a>
+    <a href="{%url 'HomeProfesor'%}">Inicio</a>
+    <a href="{%url 'SelectProfesor'%}">Listar</a>
+    <a href="{%url 'InsertProfesor'%}">Crear</a>
+    <a href="{%url 'FindUpdateProfesor'%}">Actualizar</a>
+    <a href="{%url 'FindDeleteProfesor'%}">Eliminar</a>
+    <a href="{%url 'Administrativo'%}">Regresar</a>
     {%block body%}
 
     {%endblock body%}
