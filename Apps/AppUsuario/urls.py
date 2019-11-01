@@ -4,7 +4,7 @@ from Apps.AppCarrera.views import HomeCarrera
 from Apps.AppAlumno.views import HomeAlumno
 from Apps.AppProfesor.views import HomeProfesor
 from Apps.AppCurso.views import HomeCurso, CursoProfesor
-from Apps.AppNota.views import HomeNota
+from Apps.AppNota.views import HomeNota, SelectNotaAlumno
 from Apps.AppRecuperacion.views import HomeRecuperacion
 from .views import UpdateUsuarioProfesor, Profesor, Administrativo, Login, FindDeleteUsuario, DeleteUsuario ,FindUpdateUsuario ,HomeUsuario, SelectUsuario, InsertUsuario, UpdateUsuario
 
@@ -34,4 +34,7 @@ urlpatterns = [
     #PATH PROFESOR
     path('CursoProfesor/<int:pk_profesor>', CursoProfesor, name = 'CursoProfesor'),
     path('UpdateUsuarioProfesor/<int:fk_usuario>', UpdateUsuarioProfesor, name = 'UpdateUsuarioProfesor'),
+
+    #PATH ALUMNO
+    path('SelectNotaAlumno/<int:pk_alumno>', SelectNotaAlumno, name = 'SelectNotaAlumno')
 ]

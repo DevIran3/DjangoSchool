@@ -115,3 +115,9 @@ def UpdateNotaProfesor(request, pk_nota):
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempNota/InsertNotaProfesor.html', {'formNota':formNota, 'Error':Error, 'clsNota':clsNota})
+
+def SelectNotaAlumno(request, pk_alumno):
+    clsAlumno = ClsAlumno.objects.get(pk_alumno = pk_alumno)
+    print(clsAlumno.nombre)
+    clsNota = ClsNota.objects.filter(fk_alumno = clsAlumno)
+    return render(request, 'TempNota/SelectNotaAlumno.html', {'clsNota': clsNota})

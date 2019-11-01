@@ -3,8 +3,10 @@ from tkinter.tix import _dummyFileComboBox
 
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+
 from .forms import FormUsuario
 from .models import ClsUsuario
+from Apps.AppAlumno.models import ClsAlumno
 from Apps.AppProfesor.models import ClsProfesor
 from Apps.AppCurso.models import ClsCurso
 from Apps.AppEstablecimiento.models import ClsEstablecimiento
@@ -98,7 +100,8 @@ def Login(request):
                 clsProfesor = ClsProfesor.objects.get(fk_usuario = clsUsuario.pk_usuario)
                 return render(request, 'TempSesion/Profesor.html', {'clsProfesor':clsProfesor})
             elif request.POST.get('codigo_usuario') == "Alumno" and clsUsuario.codigo_usuario == '1111' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
-                print("ALUMNO")
+                clsAlumno = ClsAlumno.objects.get(fk_usuario=clsUsuario.pk_usuario)
+                return render(request, 'TempSesion/Alumno.html', {'clsAlumno': clsAlumno})
         else:
             print("METODO GET")
     except Exception as ex:
@@ -133,3 +136,9 @@ def UpdateUsuarioProfesor(request, fk_usuario):
     except ObjectDoesNotExist as e:
         Error = e
     return render(request, 'TempUsuario/InsertUsuarioProfesor.html', {'UsuarioForm':UsuarioForm, 'Error':Error, 'clsUsuario':clsUsuario})
+
+def Alumno(request):
+    try:
+        return render(request, 'TempSesion/Alumno.html')
+    except Exception as ex:
+        Error = ex
