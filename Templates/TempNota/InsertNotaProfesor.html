@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ingreso Nota</title>
+    <h1>Ingreso Nota</h1>
+</head>
+<body>
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Parcial 1</label>
+            <input type="number" name="parcial_1" content="{{formNota.parcial_1}}">
+            <label>Parcial 2</label>
+            <input type="number" name="parcial_2" content="{{formNota.parcial_2}}">
+            <label>Zona</label>
+            <input type="number" name="zona" content="{{formNota.zona}}">
+            <label>Parcial 3</label>
+            <input type="number" name="parcial_3" content="{{formNota.parcial_3}}">
+            <label>Final</label>
+            <input type="number" name="final" content="{{formNota.final}}">
+            <label>Fecha Ingreso</label>
+            <input type="date" name="fecha_ingreso" content="{{formNota.fecha_ingreso}}">
+            <label>Fecha Actualizarcion</label>
+            <input type="date" name="fecha_modificacion" content="{{formNota.fecha_modificacion}}">
+            <label>Estado</label>
+            <input type="number" name="estado" content="{{formNota.estado}}">
+            <label>Codigo Curso actual: {{clsNota.fk_curso.pk_curso}}</label>
+            <input type="number" name="fk_curso" required>
+            <label>Codigo Carrera actual: {{clsNota.fk_carrera.id}}</label>
+            <input type="number" name="fk_carrera" required>
+            <label>Codigo Profesor actual: {{clsNota.fk_profesor.pk_profesor}}</label>
+            <input type="number" name="fk_profesor" required>
+            <label>Codigo Establecimiento actual: {{clsNota.fk_establecimiento.pk_establecimiento}}</label>
+            <input type="number" name="fk_establecimiento" required>
+            <label>Codigo Alumno actual: {{clsNota.fk_alumno.pk_alumno}}</label>
+            <input type="number" name="fk_alumno" required>
+            <button type="submit">Insertar</button>
+            <a href="{%url 'Login'%}">Cerrar Sesion</a>
+        {%endif%}
+    </form>
+</body>
+</html>

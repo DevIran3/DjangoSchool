@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notas</title>
+    <h1>Notas</h1>
+</head>
+<body>
+    {%if clsNota%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Parcial 1</th>
+                    <th>Parcial 2</th>
+                    <th>Zona</th>
+                    <th>Parcial 3</th>
+                    <th>Final</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Actualizacion</th>
+                    <th>Estado</th>
+                    <th>Curso</th>
+                    <th>Carrera</th>
+                    <th>Profesor</th>
+                    <th>Establecimiento</th>
+                    <th>Alumno</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Nota in clsNota%}
+                <tr>
+                    <td>{{Nota.parcial_1}}</td>
+                    <td>{{Nota.parcial_2}}</td>
+                     <td>{{Nota.zona}}</td>
+                    <td>{{Nota.parcial_3}}</td>
+                    <td>{{Nota.final}}</td>
+                    <td>{{Nota.fecha_ingreso}}</td>
+                    <td>{{Nota.fecha_modificacion}}</td>
+                    <td>{{Nota.estado}}</td>
+                    <td>{{Nota.fk_curso.pk_curso}}-{{Nota.fk_curso.descripcion}}</td>
+                    <td>{{Nota.fk_carrera.id}}-{{Nota.fk_carrera.descripcion}}</td>
+                    <td>{{Nota.fk_profesor.pk_profesor}}-{{Nota.fk_profesor.nombre}}</td>
+                    <td>{{Nota.fk_establecimiento.pk_establecimiento}}-{{Nota.fk_establecimiento.nombre}}</td>
+                    <td>{{Nota.fk_alumno.pk_alumno}}-{{Nota.fk_alumno.nombre}} {{Nota.fk_alumno.apellido}}</td>
+                    <td>
+                        <a href="{%url 'UpdateNotaProfesor' Nota.pk_nota%}">Actualizar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <a href="{%url 'Login'%}">Cerrar Sesion</a>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+</body>
+</html>

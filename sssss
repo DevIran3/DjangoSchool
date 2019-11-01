@@ -1,0 +1,138 @@
+[33mcommit ef5a4d9d99821bcfbdff8919686075382912bf2c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Fri Nov 1 01:47:55 2019 -0600
+
+    Logic AdministratorSesion all no Frontend
+
+[33mcommit ed45c4daa01da3d4a75eeda218325f8e1e03b0a4[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Thu Oct 31 05:35:20 2019 -0600
+
+    ViewUsuario Login logicaAdministrativo
+
+[33mcommit 1289c93a118431b47a0e757dcc4fde251437f4e3[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Wed Oct 30 15:23:46 2019 -0600
+
+    ViewUsuario add model atribute usuario
+
+[33mcommit 28073dc223d08bbdcc7f3e58925595b2400064df[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Mon Oct 28 03:25:49 2019 -0600
+
+    ViewNota and ViewRecuperacion Complete
+
+[33mcommit 0a4ddcd5b8891f7bc2ed67f11ddfb78c7210445f[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sun Oct 27 17:41:35 2019 -0600
+
+    View Curso almost complete
+
+[33mcommit 2dff28bbfeafcb766dfda840249cc74c2636f70c[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sun Oct 27 01:19:53 2019 -0600
+
+    ViewProfesor Complete
+
+[33mcommit 2ae26a15193711d8083edf1ed1462a14851c1f3e[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 26 19:35:07 2019 -0600
+
+    ViewAlumno Complete
+
+[33mcommit 7b47d96f69961f816aad4f00c04c1b78254dd3c0[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 26 16:21:27 2019 -0600
+
+    ViewCarrera Complete
+
+[33mcommit 361badd6b2acb013b53809b2fd1e8eb40636ed4b[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Fri Oct 25 14:38:10 2019 -0600
+
+    ViewUsuario Complete
+
+[33mcommit 70d1764091bce4f758cd5a0bde56e8ec2b701ef3[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Thu Oct 24 18:41:55 2019 -0600
+
+    ViewEstablecimiento Complete
+
+[33mcommit 5601f29ebf2c7888e2482aa7555ef367defc083a[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 19 03:28:52 2019 -0600
+
+    ViewEstablecimiento save
+
+[33mcommit 6d040f83137b28e209e77621b16f770c450687f0[m
+Merge: 78e67d8 0825e72
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 19 03:24:58 2019 -0600
+
+    ViewEstablecimiento Terminado -DeleteMissingID
+
+[33mcommit 78e67d85d3a523f60cd1d92dba66dcbce0c4a2b1[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 19 03:17:32 2019 -0600
+
+    ViewEstablecimiento casi termnina falta validacion Delete
+
+[33mcommit 0825e7286ef1d16152ee11a0f8ad5445a3545152[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 19 01:15:31 2019 -0600
+
+    ViewEstablecimiento InsertarEstable... request.POST.get('value')
+
+[33mcommit 0d3c7710e64ea5b8f60da900465d298adfc06dc6[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Sat Oct 19 01:00:45 2019 -0600
+
+    ViewEstablecimiento InsertEstablecimeinto POST usando name de las etiquetas html
+
+[33mcommit c4817ee0265a0af945363d858311f882c56b1fe4[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Fri Oct 18 02:44:36 2019 -0600
+
+    ViewEstablecimiento Eliminar con estado CRUD completo
+
+[33mcommit ff25391e35ba3b485512b6e25441bc6b7274d354[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Thu Oct 17 10:55:30 2019 -0600
+
+    ViewEstablecimiento Update y modulo Ver+Actulizar
+
+[33mcommit bc6d02d0f660081c136719e3e8ae2804e7e089d9[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Wed Oct 16 20:35:03 2019 -0600
+
+    ViewEstablecimiento si Select no Filther
+
+[33mcommit 8cff5a5ad3fd05a5b68d5b02cd2563126a32646b[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Wed Oct 16 17:48:09 2019 -0600
+
+    ViewEstablecimiento add PantillasDjango index and home
+
+[33mcommit 62dc955670833321883f4f87eaa5f6effff38d3f[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Wed Oct 16 00:36:56 2019 -0600
+
+    ViewEstablecimiento Insert con csrf_token
+
+[33mcommit 908bde1862b81a143936ceef861477bea1deece6[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Tue Oct 15 19:58:58 2019 -0600
+
+    ViewEstablecimiento Insert
+
+[33mcommit af8864fc9b264372f2303b879d928edaee88cd0d[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Tue Oct 15 02:24:27 2019 -0600
+
+    Primera ViewEstablecimiento
+
+[33mcommit b283d9cdbaab0e5e0e8b872c56bdd9b9241d4731[m
+Author: IRAN MOLINA <iranmolina3@gmail.com>
+Date:   Thu Oct 10 00:47:52 2019 -0600
+
+    Models, Apps, ConnectionDB, Migrations SUCCESS

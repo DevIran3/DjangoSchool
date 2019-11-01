@@ -91,3 +91,27 @@ def FindDeleteNota(request):
         return render(request, 'TempNota/FindNota.html')
     if request.method == 'POST':
         return redirect('DeleteNota', request.POST.get('pk_nota'))
+
+
+
+
+
+def SelectNotaProfesor(request, pk_curso):
+    clsNota = ClsNota.objects.filter(fk_curso = pk_curso)
+    return render(request, 'TempNota/SelectNotaProfesor.html', {'clsNota': clsNota})
+
+def UpdateNotaProfesor(request, pk_nota):
+    Error = None
+    formNota = None
+    try:
+        clsNota = ClsNota.objects.get(pk_nota = pk_nota)
+        if request.method == 'GET':
+            formNota = FormNota(instance = clsNota)
+        else:
+            formNota = FormNota(request.POST, instance = clsNota)
+            if formNota.is_valid():
+                formNota.save()
+                return render(request, 'TempNota/InsertNotaProfesor.html', {'formNota':formNota, 'Error':Error, 'clsNota':clsNota})
+    except ObjectDoesNotExist as e:
+        Error = e
+    return render(request, 'TempNota/InsertNotaProfesor.html', {'formNota':formNota, 'Error':Error, 'clsNota':clsNota})

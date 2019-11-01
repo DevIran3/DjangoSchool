@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%block head%}
+        <title>{%block title%}Profesores{%endblock title%}</title>
+        <h1>{%block h1%}Profesores{%endblock h1%}</h1>
+    {%endblock head%}
 </head>
 <body>
 
+    <a href="{%url 'Login'%}">Cerrar Sesion</a>
+    <a href="{%url 'CursoProfesor' clsProfesor.pk_profesor%}">Cursos</a>
+    <a href="{%url 'UpdateUsuarioProfesor' clsProfesor.fk_usuario.pk_usuario%}">Actualizar Usuario</a>
+    {%block body%}
+    {%endblock body%}
 </body>
 </html>

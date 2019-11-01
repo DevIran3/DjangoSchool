@@ -74,3 +74,10 @@ def FindDeleteCurso(request):
         return render(request, 'TempCurso/FindCurso.html')
     if request.method == 'POST':
         return redirect('DeleteCurso', request.POST.get('pk_curso'))
+
+
+def CursoProfesor(request, pk_profesor):
+    clsCurso = ClsCurso.objects.filter(fk_profesor = pk_profesor)
+    return render(request, 'TempCurso/SelectCursoProfesor.html', {'clsCurso': clsCurso})
+
+

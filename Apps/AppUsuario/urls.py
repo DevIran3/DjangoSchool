@@ -3,10 +3,10 @@ from Apps.AppEstablecimiento.views import HomeEstablecimiento
 from Apps.AppCarrera.views import HomeCarrera
 from Apps.AppAlumno.views import HomeAlumno
 from Apps.AppProfesor.views import HomeProfesor
-from Apps.AppCurso.views import HomeCurso
+from Apps.AppCurso.views import HomeCurso, CursoProfesor
 from Apps.AppNota.views import HomeNota
 from Apps.AppRecuperacion.views import HomeRecuperacion
-from .views import Administrativo, Login, FindDeleteUsuario, DeleteUsuario ,FindUpdateUsuario ,HomeUsuario, SelectUsuario, InsertUsuario, UpdateUsuario
+from .views import UpdateUsuarioProfesor, Profesor, Administrativo, Login, FindDeleteUsuario, DeleteUsuario ,FindUpdateUsuario ,HomeUsuario, SelectUsuario, InsertUsuario, UpdateUsuario
 
 urlpatterns = [
     path('Inicio/', HomeUsuario, name ='HomeUsuario'),
@@ -20,6 +20,7 @@ urlpatterns = [
     #PATH LOGIN
     path('Login/', Login, name = 'Login'),
     path('SesionAdministrativo/', Administrativo, name = 'Administrativo'),
+    path('SesionProfesor/', Profesor, name = 'Profesor'),
 
     #PATH ADMINISTRATIVO
     path('HomeAdministrativo/', HomeEstablecimiento, name ='HomeEstablecimiento'),
@@ -29,4 +30,8 @@ urlpatterns = [
     path('HomeCurso', HomeCurso, name = 'HomeCurso'),
     path('HomeNota', HomeNota, name = 'HomeNota'),
     path('HomeRecuperacion', HomeRecuperacion, name = 'HomeRecuperacion'),
+
+    #PATH PROFESOR
+    path('CursoProfesor/<int:pk_profesor>', CursoProfesor, name = 'CursoProfesor'),
+    path('UpdateUsuarioProfesor/<int:fk_usuario>', UpdateUsuarioProfesor, name = 'UpdateUsuarioProfesor'),
 ]

@@ -6,8 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .forms import FormUsuario
 from .models import ClsUsuario
 from Apps.AppProfesor.models import ClsProfesor
-from Apps.AppAlumno.models import ClsAlumno
-from Apps.AppAdministrativo.models import ClsAdministrativo
+from Apps.AppCurso.models import ClsCurso
 from Apps.AppEstablecimiento.models import ClsEstablecimiento
 
 # Create your views here.
@@ -96,7 +95,8 @@ def Login(request):
             if request.POST.get('codigo_usuario') == "Administrativo" and clsUsuario.codigo_usuario == 'XXXX' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
                 return redirect('Administrativo')
             elif request.POST.get('codigo_usuario') == "Profesor" and clsUsuario.codigo_usuario == '2222' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
-                print("PROFESOR")
+                clsProfesor = ClsProfesor.objects.get(fk_usuario = clsUsuario.pk_usuario)
+                return render(request, 'TempSesion/Profesor.html', {'clsProfesor':clsProfesor})
             elif request.POST.get('codigo_usuario') == "Alumno" and clsUsuario.codigo_usuario == '1111' and clsUsuario.usuario == request.POST.get('usuario') and clsUsuario.contrasena == request.POST.get('contrasena'):
                 print("ALUMNO")
         else:
@@ -110,3 +110,26 @@ def Administrativo(request):
         return render(request, 'TempSesion/Administrativo.html')
     except Exception as ex:
         Error = ex
+
+def Profesor(request):
+    try:
+        return render(request, 'TempSesion/Profesor.html')
+    except Exception as ex:
+        Error = ex
+
+def UpdateUsuarioProfesor(request, fk_usuario):
+    Error = None
+    UsuarioForm = None
+    try:
+        clsUsuario = ClsUsuario.objects.get(pk_usuario = fk_usuario)
+        print("UpdateUsuarioProfesor")
+        if request.method == 'GET':
+            UsuarioForm = FormUsuario(instance = clsUsuario)
+        else:
+            UsuarioForm = FormUsuario(request.POST, instance = clsUsuario)
+            if UsuarioForm.is_valid():
+                UsuarioForm.save()
+                return redirect('Login')
+    except ObjectDoesNotExist as e:
+        Error = e
+    return render(request, 'TempUsuario/InsertUsuarioProfesor.html', {'UsuarioForm':UsuarioForm, 'Error':Error, 'clsUsuario':clsUsuario})

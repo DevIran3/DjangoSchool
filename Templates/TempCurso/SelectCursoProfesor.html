@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cursos</title>
+    <h1>Cursos</h1>
+</head>
+</body>
+    {%if clsCurso%}
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo Curso</th>
+                    <th>Descripcion</th>
+                    <th>Hora Entrada</th>
+                    <th>Hora Salida</th>
+                    <th>Estado</th>
+                    <th>Profesor</th>
+                    <th>Carrera</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for Curso in clsCurso%}
+                <tr>
+                    <td>{{Curso.pk_curso}}</td>
+                    <td>{{Curso.descripcion}}</td>
+                    <td>{{Curso.hora_entrada}}</td>
+                    <td>{{Curso.hora_salida}}</td>
+                    <td>{{Curso.estado}}</td>
+                    <td>{{Curso.fk_profesor.nombre}}</td>
+                    <td>{{Curso.fk_carrera.descripcion}}</td>
+                    <td>
+                        <a href="{%url 'SelectNotaProfesor' Curso.pk_curso%}">Ingresar Notas</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <a href="{%url 'Login'%}">Cerrar Sesion</a>
+    {%else%}
+        <p>No exites elementos</p>
+    {%endif%}
+</body>
+</html>

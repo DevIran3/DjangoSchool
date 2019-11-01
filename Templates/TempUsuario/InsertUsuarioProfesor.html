@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Actualizar Usuario</title>
+    <h1>Actualizar Usuario</h1>
+</head>
+<body>
+    <form method="POST">
+        {%csrf_token%}
+        {%if Error%}
+            <h2>{{Error}}</h2>
+        {%else%}
+            <label>Codigo Usuario</label>
+            <input type="text" name="codigo_usuario" content={{UsuarioForm.codigo_usuario}}>
+            <label>Usuario Correo</label>
+            <input type="email" name="usuario" content={{UsuarioForm.usuario}} required>
+            <label>Contrasena</label>
+            <input type="password" name="contrasena" content={{UsuarioForm.contrasena}} required>
+            <label>Estado</label>
+            <input type="number" name="estado" content={{UsuarioForm.estado}}>
+            <label>Codigo Establecimiento actual: {{clsUsuario.fk_school.pk_establecimiento}}</label>
+            <input type="number" name="fk_school" required >
+            <button type="submit">Insertar</button>
+        {%endif%}
+    </form>
+</body>
+</html>
