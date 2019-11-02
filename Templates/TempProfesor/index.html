@@ -7,15 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{%block title%}Profesor{%endblock title%}</title>
-    <h1>{%block h1%}Profesor{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="{%url 'HomeProfesor'%}">Inicio</a>
-    <a href="{%url 'SelectProfesor'%}">Listar</a>
-    <a href="{%url 'InsertProfesor'%}">Crear</a>
-    <a href="{%url 'FindUpdateProfesor'%}">Actualizar</a>
-    <a href="{%url 'FindDeleteProfesor'%}">Eliminar</a>
-    <a href="{%url 'Administrativo'%}">Regresar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{%url 'HomeProfesor'%}">Profesor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'InsertProfesor'%}">Crear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'SelectProfesor'%}">Listar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindUpdateProfesor'%}">Actualizar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindDeleteProfesor'%}">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'Administrativo'%}">Regresar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     {%block body%}
 
     {%endblock body%}
