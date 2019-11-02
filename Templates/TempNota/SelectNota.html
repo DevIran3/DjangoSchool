@@ -7,29 +7,31 @@
 {%endblock h1%}
 {%block body%}
     {%if clsNota%}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Parcial 1</th>
-                    <th>Parcial 2</th>
-                    <th>Zona</th>
-                    <th>Parcial 3</th>
-                    <th>Final</th>
-                    <th>Fecha Ingreso</th>
-                    <th>Fecha Actualizacion</th>
-                    <th>Estado</th>
-                    <th>Curso</th>
-                    <th>Carrera</th>
-                    <th>Profesor</th>
-                    <th>Establecimiento</th>
-                    <th>Alumno</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Parcial 1</th>
+                    <th scope="col">Parcial 2</th>
+                    <th scope="col">Zona</th>
+                    <th scope="col">Parcial 3</th>
+                    <th scope="col">Final</th>
+                    <th scope="col">Fecha Ingreso</th>
+                    <th scope="col">Fecha Actualizacion</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Carrera</th>
+                    <th scope="col">Profesor</th>
+                    <th scope="col">Establecimiento</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {%for Nota in clsNota%}
-                <tr>
+                <tr class="table-info">
+                    <th scope="col">{{Nota.pk_nota}}</th>
                     <td>{{Nota.parcial_1}}</td>
                     <td>{{Nota.parcial_2}}</td>
                     <td>{{Nota.zona}}</td>
@@ -43,12 +45,12 @@
                     <td>{{Nota.fk_profesor.pk_profesor}}-{{Nota.fk_profesor.nombre}}</td>
                     <td>{{Nota.fk_establecimiento.pk_establecimiento}}-{{Nota.fk_establecimiento.nombre}}</td>
                     <td>{{Nota.fk_alumno.pk_alumno}}-{{Nota.fk_alumno.nombre}} {{Nota.fk_alumno.apellido}}</td>
-                    <td>
+                    <th scope="col">
                         <a href="{%url 'UpdateNota' Nota.pk_nota%}">Actualizar</a>
-                    </td>
-                    <td>
+                    </th>
+                    <th scope="col">
                         <a href="{%url 'DeleteNota' Nota.pk_nota%}">Eliminar</a>
-                    </td>
+                    </th>
                 </tr>
                 {%endfor%}
             </tbody>
