@@ -9,7 +9,9 @@
     <br>
     <form method="POST">
         {%csrf_token%}
-        <input type="number" name="id" placeholder="Ingrese codigo Carrera">
-        <button type="submit">Buscar</button>
+        <div class="form-control-plaintext" id="staticEmail">
+            <input type="number" name="id" placeholder="Ingrese codigo Carrera">
+            <button type="submit" class="btn btn-success">Buscar</button>
+        </div>
     </form>
 {%endblock body%}

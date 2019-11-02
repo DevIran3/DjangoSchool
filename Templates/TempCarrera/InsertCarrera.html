@@ -11,15 +11,26 @@
         {%if Error%}
             <h2>{{Error}}</h2>
         {%else%}
-            <label>Descripcion</label>
-            <input type="text" name="descripcion" content="{{CarreraForm.descripcion}}">
-            <label>Grado</label>
-            <input type="text" name="grado" content="{{CarreraForm.grado}}">
-            <label>Seccion</label>
-            <input type="text" name="seccion" content="{{CarreraForm.seccion}}">
-            <label>Estado</label>
-            <input type="number" name="estado" content="{{CarreraForm.estado}}">
-            <button type="submit">Insertar</button>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Descripcion</label>
+            <div class="col-sm-10">
+               <input type="text" placeholder="Ingrese descripcion" name="descripcion" required content="{{CarreraForm.descripcion}}">
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Grado</label>
+            <div class="col-sm-10">
+               <input type="text" placeholder="Ingrese grado" name="grado" required content="{{CarreraForm.grado}}">
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Seccion</label>
+            <div class="col-sm-10">
+               <input type="text" placeholder="Ingrese seccion" name="seccion" required content="{{CarreraForm.seccion}}">
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Estado</label>
+            <div class="col-sm-10">
+               <input type="number" placeholder="Ingrese estado" name="estado" required content="{{CarreraForm.estado}}">
+            </div>
+            <div class="col-sm-10">
+                <br>
+                <button type="submit" class="btn btn-success">Insertar</button>
+            </div>
         {%endif%}
     </form>
 {%endblock body%}
