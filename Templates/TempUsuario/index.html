@@ -8,15 +8,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{%block title%}Usuario{%endblock title%}</title>
-    <h1>{%block h1%}Usuario{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="{%url 'HomeUsuario'%}">Inicio</a>
-    <a href="{%url 'SelectUsuario'%}">Listar</a>
-    <a href="{%url 'InsertUsuario'%}">Crear</a>
-    <a href="{%url 'FindUpdateUsuario'%}">Actualizar</a>
-    <a href="{%url 'FindDeleteUsuario'%}">Eliminar</a>
-    <a href="{%url 'Administrativo'%}">Regresar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{%url 'HomeUsuario'%}">Usuario</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'InsertUsuario'%}">Crear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'SelectUsuario'%}">Listar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindUpdateUsuario'%}">Actualizar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindDeleteUsuario'%}">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'Administrativo'%}">Regresar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     {%block body%}
 
     {%endblock body%}

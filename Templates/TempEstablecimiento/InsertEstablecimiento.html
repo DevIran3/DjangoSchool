@@ -3,8 +3,8 @@
     Insertar Establecimiento
 {%endblock title%}
 {%block body%}
-<body>
-    <div>
+
+<div>
     <form method="POST">
         {%csrf_token%}
         {%if Error%}
@@ -31,9 +31,7 @@
             <button type="submit">Insertar</button>
         </div>
         {%endif%}
-        </form>
-    </div>
-</body>
-
+    </form>
+</div>
 
 {%endblock body%}

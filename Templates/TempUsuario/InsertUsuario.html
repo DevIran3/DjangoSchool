@@ -2,26 +2,38 @@
 {%block title%}
    Insertar Usuario
 {%endblock title%}
-{%block h1%}
-    Insertar Usuario
-{%endblock h1%}
 {%block body%}
+<div>
     <form method="POST">
         {%csrf_token%}
         {%if Error%}
             <h2>{{Error}}</h2>
         {%else%}
-            <label>Codigo Usuario</label>
-            <input type="text" name="codigo_usuario" content={{UsuarioForm.codigo_usuario}}>
-            <label>Usuario Correo</label>
-            <input type="email" name="usuario" content={{UsuarioForm.usuario}} required>
-            <label>Contrasena</label>
-            <input type="password" name="contrasena" content={{UsuarioForm.contrasena}} required>
-            <label>Estado</label>
-            <input type="number" name="estado" content={{UsuarioForm.estado}}>
-            <label>Codigo Establecimiento actual: {{clsUsuario.fk_school.pk_establecimiento}}</label>
-            <input type="number" name="fk_school" required>
-            <button type="submit">Insertar</button>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Codigo Usuario</label>
+            <div class="col-sm-10">
+                <input placeholder="Ingrese usuario" type="text" name="codigo_usuario" content={{UsuarioForm.codigo_usuario}}>
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Usuario Correo</label>
+            <div class="col-sm-10">
+                <input placeholder="Ingrese correo" required type="email" name="usuario" content={{UsuarioForm.usuario}}>
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Contraseña</label>
+            <div class="col-sm-10">
+                <input placeholder="Ingrese contrasena" required type="password" name="contrasena" content={{UsuarioForm.contrasena}}>
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Estado</label>
+            <div class="col-sm-10">
+                <input placeholder="Ingrese estado" type="number" name="estado" content={{UsuarioForm.estado}}>
+            </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Codigo Establecimiento actual: {{clsUsuario.fk_school.pk_establecimiento}}</label>
+            <div class="col-sm-10">
+                <input placeholder="Ingrese codigo school" type="number" name="fk_school" required>
+            </div>
+            <div class="col-sm-10">
+                <br>
+                <button type="submit">Insertar</button>
+            </div>
         {%endif%}
     </form>
+</div>
 {%endblock body%}

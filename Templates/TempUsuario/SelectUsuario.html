@@ -7,34 +7,34 @@
 {%endblock h1%}
 {%block body%}
     {%if clsUsuario%}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Codigo</th>
-                    <th>Codigo Usuario</th>
-                    <th>Usuario</th>
-                    <th>Constraseña</th>
-                    <th>Estado</th>
-                    <th>Colegio</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Codigo Usuario</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Constraseña</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Colegio</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {%for Usuario in clsUsuario%}
-                <tr>
-                    <td>{{Usuario.pk_usuario}}</td>
+                <tr class="table-info">
+                    <th scope="col">{{Usuario.pk_usuario}}</th>
                     <td>{{Usuario.codigo_usuario}}</td>
                     <td>{{Usuario.usuario}}</td>
                     <td>{{Usuario.contrasena}}</td>
                     <td>{{Usuario.estado}}</td>
                     <td>{{Usuario.fk_school.nombre}}</td>
-                    <td>
+                    <th scope="col">
                         <a href="{%url 'UpdateUsuario' Usuario.pk_usuario%}">Actualizar</a>
-                    </td>
-                    <td>
+                    </th>
+                    <th scope="col">
                         <a href="{%url 'DeleteUsuario' Usuario.pk_usuario%}">Eliminar</a>
-                    </td>
+                    </th>
                 </tr>
                 {%endfor%}
             </tbody>
