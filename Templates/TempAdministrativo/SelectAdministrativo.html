@@ -7,36 +7,36 @@
 {%endblock h1%}
 {%block body%}
     {%if clsAdministrativo%}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Codigo Administrativo</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>DPI</th>
-                    <th>Fecha Ingreso</th>
-                    <th>Estado</th>
-                    <th>Codigo Usuario</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Codigo Administrativo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">DPI</th>
+                    <th scope="col">Fecha Ingreso</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Codigo Usuario</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {%for Administrativo in clsAdministrativo%}
-                <tr>
-                    <td>{{Administrativo.pk_administrativo}}</td>
+                <tr class="table-info">
+                    <th scope="col">{{Administrativo.pk_administrativo}}</th>
                     <td>{{Administrativo.nombre}}</td>
                     <td>{{Administrativo.apellido}}</td>
                     <td>{{Administrativo.dpi}}</td>
                     <td>{{Administrativo.fecha_ingreso}}</td>
                     <td>{{Administrativo.estado}}</td>
                     <td>{{Administrativo.fk_usuario.codigo_usuario}}</td>
-                    <td>
+                    <th scope="col">
                         <a href="{%url 'UpdateAdministrativo' Administrativo.pk_administrativo%}">Actualizar</a>
-                    </td>
-                    <td>
+                    </th>
+                    <th scope="col">
                         <a href="{%url 'DeleteAdministrativo' Administrativo.pk_administrativo%}">Eliminar</a>
-                    </td>
+                    </th>
                 </tr>
                 {%endfor%}
             </tbody>

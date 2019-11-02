@@ -7,15 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{%block title%}Administrativo{%endblock title%}</title>
-    <h1>{%block h1%}Administrativo{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="{%url 'HomeAdministrativo'%}">Inicio</a>
-    <a href="{%url 'SelectAdministrativo'%}">Listar</a>
-    <a href="{%url 'InsertAdministrativo'%}">Crear</a>
-    <a href="{%url 'FindUpdateAdministrativo'%}">Actualizar</a>
-    <a href="{%url 'FindDeleteAdministrativo'%}">Eliminar</a>
-    <a href="{%url 'Administrativo'%}">Regresar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{%url 'HomeAdministrativo'%}">Carrera</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'InsertAdministrativo'%}">Crear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'SelectAdministrativo'%}">Listar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindUpdateAdministrativo'%}">Actualizar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindDeleteAdministrativo'%}">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'Administrativo'%}">Regresar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     {%block body%}
 
     {%endblock body%}
