@@ -12,8 +12,12 @@
             <h2>{{Error}}</h2>
         {%else%}
             <h2>Desea Eliminar este registro? {{clsCurso.descripcion}}</h2>
-            <button type="submit">Eliminar</button>
-            <a href="{%url 'SelectCurso' %}">Cancelar</a>
+            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            <a href="{%url 'SelectCurso' %}">
+                <button class="btn btn-outline-primary">
+                    Cancelar
+                </button>
+            </a>
         {%endif%}
     </form>
 {%endblock body%}

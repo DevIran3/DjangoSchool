@@ -7,36 +7,36 @@
 {%endblock h1%}
 {%block body%}
     {%if clsCurso%}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Codigo Curso</th>
-                    <th>Descripcion</th>
-                    <th>Hora Entrada</th>
-                    <th>Hora Salida</th>
-                    <th>Estado</th>
-                    <th>Profesor</th>
-                    <th>Carrera</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Codigo Curso</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Hora Entrada</th>
+                    <th scope="col">Hora Salida</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Profesor</th>
+                    <th scope="col">Carrera</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {%for Curso in clsCurso%}
-                <tr>
-                    <td>{{Curso.pk_curso}}</td>
+                <tr class="table-info">
+                    <th scope="col">{{Curso.pk_curso}}</th>
                     <td>{{Curso.descripcion}}</td>
                     <td>{{Curso.hora_entrada}}</td>
                     <td>{{Curso.hora_salida}}</td>
                     <td>{{Curso.estado}}</td>
                     <td>{{Curso.fk_profesor.nombre}}</td>
                     <td>{{Curso.fk_carrera.descripcion}}</td>
-                    <td>
+                    <th scope="col">
                         <a href="{%url 'UpdateCurso' Curso.pk_curso%}">Actualizar</a>
-                    </td>
-                    <td>
+                    </th>
+                    <th scope="col">
                         <a href="{%url 'DeleteCurso' Curso.pk_curso%}">Eliminar</a>
-                    </td>
+                    </th>
                 </tr>
                 {%endfor%}
             </tbody>
