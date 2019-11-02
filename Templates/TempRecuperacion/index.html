@@ -7,15 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{%block title%}Recuperacion{%endblock title%}</title>
-    <h1>{%block h1%}Recuperacion{%endblock h1%}</h1>
 </head>
 <body>
-    <a href="{%url 'HomeRecuperacion'%}">Inicio</a>
-    <a href="{%url 'SelectRecuperacion'%}">Listar</a>
-    <a href="{%url 'InsertRecuperacion'%}">Crear</a>
-    <a href="{%url 'FindUpdateRecuperacion'%}">Actualizar</a>
-    <a href="{%url 'FindDeleteRecuperacion'%}">Eliminar</a>
-    <a href="{%url 'Administrativo'%}">Regresa</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{%url 'HomeRecuperacion'%}">Recuperacion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'InsertRecuperacion'%}">Crear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'SelectRecuperacion'%}">Listar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindUpdateRecuperacion'%}">Actualizar</a
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'FindDeleteRecuperacion'%}">Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'Administrativo'%}">Regresar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     {%block body%}
     {%endblock body%}
 </body>
