@@ -2,24 +2,38 @@
 {%block title%}
     Insertar Establecimiento
 {%endblock title%}
-{%block h1%}
-    Insertar Establecimiento
-{%endblock h1%}
 {%block body%}
+<body>
+    <div>
     <form method="POST">
         {%csrf_token%}
         {%if Error%}
             <h2>{{Error}}</h2>
         {%else%}
-            <label>Nombre</label>
-            <input type="text" name="nombre" content={{EstablecimientoForm.nombre}}>
-            <label>Direccion</label>
-            <input type="text" name="direccion" content={{EstablecimientoForm.direccion}}>
-            <label>Fundacion</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" name="nombre" placeholder="Ingresa nombre" content={{EstablecimientoForm.nombre}}>
+        </div>
+        <label for="staticEmail" class="col-sm-2 col-form-label">Direccion</label>
+        <div class="col-sm-10">
+            <input type="text" name="direccion" placeholder="Ingresa lugar" content={{EstablecimientoForm.direccion}}>
+        </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Fundacion</label>
+        <div class="col-sm-10">
             <input type="date" name="fundacion" content={{EstablecimientoForm.fundacion}}>
-            <label>Estado</label>
-            <input type="number" name="estado" content={{EstablecimientoForm.estado}}>
+        </div>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Estado</label>
+        <div class="col-sm-10">
+            <input type="number" name="estado" placeholder="Ingresa estado" content={{EstablecimientoForm.estado}}>
+        </div>
+        <br>
+        <div class="col-sm-10">
             <button type="submit">Insertar</button>
+        </div>
         {%endif%}
-    </form>
+        </form>
+    </div>
+</body>
+
+
 {%endblock body%}

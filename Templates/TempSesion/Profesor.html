@@ -1,3 +1,4 @@
+{%load staticfiles%}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,17 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=divice-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {%block head%}
         <title>{%block title%}Profesores{%endblock title%}</title>
-        <h1>{%block h1%}Profesores{%endblock h1%}</h1>
-    {%endblock head%}
 </head>
 <body>
-
-    <a href="{%url 'Login'%}">Cerrar Sesion</a>
-    <a href="{%url 'CursoProfesor' clsProfesor.pk_profesor%}">Cursos</a>
-    <a href="{%url 'UpdateUsuarioProfesor' clsProfesor.fk_usuario.pk_usuario%}">Actualizar Usuario</a>
-    {%block body%}
-    {%endblock body%}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{%url 'UpdateUsuarioProfesor' clsProfesor.fk_usuario.pk_usuario%}">Profesor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'CursoProfesor' clsProfesor.pk_profesor%}">Cursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'Login'%}">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </body>
 </html>
