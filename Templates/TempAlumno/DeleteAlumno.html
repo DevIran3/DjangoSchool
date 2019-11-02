@@ -11,9 +11,13 @@
         {%if Error%}
             <h2>{{Error}}</h2>
         {%else%}
-            <h2>Desea Eliminar este registro? {{clsUsuario.codigo_usuario}}</h2>
-            <button type="submit">Eliminar</button>
-            <a href="{%url 'SelectAlumno' %}">Cancelar</a>
+            <h2>Desea Eliminar este registro? {{clsAlumno.nombre}} {{clsAlumno.apellido}}</h2>
+            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            <a href="{%url 'SelectAlumno' %}">
+                <button class="btn btn-outline-primary">
+                    Cancelar
+                </button>
+            </a>
         {%endif%}
     </form>
 {%endblock body%}

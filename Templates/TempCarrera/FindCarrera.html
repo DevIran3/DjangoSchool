@@ -10,7 +10,7 @@
     <form method="POST">
         {%csrf_token%}
         <div class="form-control-plaintext" id="staticEmail">
-            <input type="number" name="id" placeholder="Ingrese codigo Carrera">
+            <input type="number" name="id" placeholder="Ingrese codigo Carrera" required>
             <button type="submit" class="btn btn-success">Buscar</button>
         </div>
     </form>

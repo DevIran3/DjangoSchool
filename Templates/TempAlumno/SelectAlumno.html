@@ -7,27 +7,27 @@
 {%endblock h1%}
 {%block body%}
     {%if clsAlumno%}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Codigo Alumno</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Fecha Incripcion</th>
-                    <th>Contacto</th>
-                    <th>Email</th>
-                    <th>Direccion</th>
-                    <th>Estado</th>
-                    <th>Codigo Carrera</th>
-                    <th>Codigo Usuario</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Codigo Alumno</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Fecha Incripcion</th>
+                    <th scope="col">Contacto</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Codigo Carrera</th>
+                    <th scope="col">Codigo Usuario</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {%for Alumno in clsAlumno%}
-                <tr>
-                    <td>{{Alumno.pk_alumno}}</td>
+                <tr class="table-info">
+                    <th scope="col">{{Alumno.pk_alumno}}</th>
                     <td>{{Alumno.nombre}}</td>
                     <td>{{Alumno.apellido}}</td>
                     <td>{{Alumno.fecha_ingreso}}</td>
@@ -37,12 +37,12 @@
                     <td>{{Alumno.estado}}</td>
                     <td>{{Alumno.fk_carrera.id}} - {{Alumno.fk_carrera.descripcion}}</td>
                     <td>{{Alumno.fk_usuario.codigo_usuario}}</td>
-                    <td>
+                    <th scope="col">
                         <a href="{%url 'UpdateAlumno' Alumno.pk_alumno %}">Actualizar</a>
-                    </td>
-                    <td>
+                    </th>
+                    <th scope="col">
                         <a href="{%url 'DeleteAlumno' Alumno.pk_alumno %}">Eliminar</a>
-                    </td>
+                    </th>
                 </tr>
                 {%endfor%}
             </tbody>
